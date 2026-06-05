@@ -232,6 +232,129 @@ const movieCatalog = [
   },
 ];
 
+movieCatalog.push(
+  {
+    title: "Brooklyn Nine-Nine",
+    type: "series",
+    provider: "netflix",
+    genre: "comedia",
+    image: "https://static.tvmaze.com/uploads/images/medium_portrait/402/1007484.jpg",
+    synopsis:
+      "Uma comédia sobre um detetive talentoso e brincalhão, seu capitão certinho e a rotina de uma delegacia cheia de personalidades.",
+    why: "leve, rápido e com humor fácil para assistir sem esforço.",
+  },
+  {
+    title: "The Good Place",
+    type: "series",
+    provider: "netflix",
+    genre: "comedia",
+    image: "https://static.tvmaze.com/uploads/images/medium_portrait/395/989291.jpg",
+    synopsis:
+      "Uma mulher vai parar por engano no lugar bom do pós-vida e tenta se tornar uma pessoa melhor antes que descubram o erro.",
+    why: "engraçado, inteligente e ótimo para ver um episódio atrás do outro.",
+  },
+  {
+    title: "Modern Love",
+    type: "series",
+    provider: "prime",
+    genre: "romance",
+    image: "https://static.tvmaze.com/uploads/images/medium_portrait/206/516330.jpg",
+    synopsis:
+      "Histórias diferentes sobre amor, encontros, recomeços e relações inspiradas em relatos reais.",
+    why: "romântico sem ser pesado e perfeito para clima de sofá.",
+  },
+  {
+    title: "One-Punch Man",
+    type: "series",
+    provider: "netflix",
+    genre: "anime",
+    image: "https://static.tvmaze.com/uploads/images/medium_portrait/598/1496471.jpg",
+    synopsis:
+      "Um herói tão forte que derrota qualquer inimigo com um soco só tenta lidar com o tédio de vencer sempre.",
+    why: "anime divertido, rápido e cheio de ação absurda.",
+  },
+  {
+    title: "Death Note",
+    type: "series",
+    provider: "netflix",
+    genre: "anime",
+    image: "https://static.tvmaze.com/uploads/images/medium_portrait/499/1249019.jpg",
+    synopsis:
+      "Um estudante encontra um caderno capaz de matar qualquer pessoa cujo nome seja escrito nele e entra em um jogo mental perigoso.",
+    why: "suspense inteligente, viciante e cheio de debate depois.",
+  },
+  {
+    title: "Jujutsu Kaisen",
+    type: "series",
+    provider: "prime",
+    genre: "anime",
+    image: "https://static.tvmaze.com/uploads/images/medium_portrait/608/1521905.jpg",
+    synopsis:
+      "Um estudante com força fora do comum entra em uma escola de feiticeiros após se envolver com uma maldição poderosa.",
+    why: "anime de ação com energia alta e visual marcante.",
+  },
+  {
+    title: "The Haunting of Hill House",
+    type: "series",
+    provider: "netflix",
+    genre: "terror",
+    image: "https://static.tvmaze.com/uploads/images/medium_portrait/498/1246083.jpg",
+    synopsis:
+      "Uma família marcada por uma casa assombrada precisa encarar traumas do passado e acontecimentos aterrorizantes.",
+    why: "terror emocional, bem feito e perfeito para assistir juntinho.",
+  },
+  {
+    title: "American Horror Story",
+    type: "series",
+    provider: "disney",
+    genre: "terror",
+    image: "https://static.tvmaze.com/uploads/images/medium_portrait/473/1183640.jpg",
+    synopsis:
+      "Uma antologia de terror em que cada temporada conta uma história fechada com personagens, cenários e ameaças diferentes.",
+    why: "boa escolha para quem quer suspense, estranheza e assunto depois.",
+  },
+  {
+    title: "Penny Dreadful",
+    type: "series",
+    provider: "max",
+    genre: "terror",
+    image: "https://static.tvmaze.com/uploads/images/medium_portrait/48/122260.jpg",
+    synopsis:
+      "Personagens clássicos do terror e da literatura se cruzam em uma Londres sombria, cheia de mistério e ameaça.",
+    why: "gótico, elegante e com clima bem forte.",
+  },
+  {
+    title: "Planet Earth",
+    type: "series",
+    provider: "globoplay",
+    genre: "documentario",
+    image: "https://static.tvmaze.com/uploads/images/medium_portrait/6/15320.jpg",
+    synopsis:
+      "Uma série documental que explora a diversidade do mundo natural com imagens impressionantes de vários países.",
+    why: "visual bonito, calmo e fácil de comentar enquanto assiste.",
+  },
+  {
+    title: "Our Planet",
+    type: "series",
+    provider: "netflix",
+    genre: "documentario",
+    image: "https://static.tvmaze.com/uploads/images/medium_portrait/606/1516540.jpg",
+    synopsis:
+      "Um documentário sobre a beleza da natureza e os impactos das mudanças climáticas na vida do planeta.",
+    why: "bonito, envolvente e com clima mais tranquilo.",
+  },
+  {
+    title: "Explained",
+    type: "series",
+    provider: "netflix",
+    genre: "documentario",
+    image: "https://static.tvmaze.com/uploads/images/medium_portrait/156/391820.jpg",
+    synopsis:
+      "Episódios curtos explicam temas variados de um jeito direto, de cultura pop a comportamento e tecnologia.",
+    why: "ótimo para ver um episódio curto e puxar conversa depois.",
+  },
+);
+
 const recipeCatalog = {
   pizza: [
     {
@@ -404,6 +527,35 @@ const recipeCatalog = {
         "Intercale iogurte, frutas e granola em taças.",
         "Finalize com mel ou geleia.",
         "Deixe gelar alguns minutos antes de servir.",
+      ],
+    },
+  ],
+  kebab: [
+    {
+      title: "Kebab caseiro no pão sírio",
+      time: "30 minutos",
+      steps: [
+        "Tempere frango, carne ou falafel com páprica, alho, cominho, sal e limão.",
+        "Doure bem na frigideira e aqueça o pão sírio.",
+        "Monte com alface, tomate, cebola roxa e molho de iogurte ou alho.",
+      ],
+    },
+    {
+      title: "Kebab de frango com molho de alho",
+      time: "35 minutos",
+      steps: [
+        "Corte o frango em tiras e tempere com limão, alho, páprica e pimenta.",
+        "Grelhe até dourar e prepare um molho com iogurte, alho, limão e sal.",
+        "Sirva no wrap ou pão sírio com salada e batata palha.",
+      ],
+    },
+    {
+      title: "Kebab bowl",
+      time: "25 minutos",
+      steps: [
+        "Monte uma base de arroz, salada ou batata.",
+        "Adicione carne, frango ou falafel bem temperado.",
+        "Finalize com molho de alho, tomate, pepino e cebola.",
       ],
     },
   ],
@@ -826,6 +978,7 @@ const state = {
 };
 
 const totalSteps = 7;
+let locationDebounce = null;
 
 const form = document.querySelector("#date-form");
 const questionArea = document.querySelector("#question-area");
@@ -961,15 +1114,18 @@ function renderQuestion() {
           id="location-input"
           name="${question.id}"
           type="text"
+          list="location-suggestions"
           value="${escapeHtml(selected || "")}"
           placeholder="${question.placeholder}"
           autocomplete="address-level2"
           required
         />
+        <datalist id="location-suggestions"></datalist>
       </label>
       ${renderWeatherNote()}
       <p class="form-error" id="form-error"></p>
     `;
+    setupLocationAutocomplete();
     return;
   }
 
@@ -1002,8 +1158,57 @@ function renderQuestion() {
   `;
 }
 
+function setupLocationAutocomplete() {
+  const input = document.querySelector("#location-input");
+  const datalist = document.querySelector("#location-suggestions");
+
+  if (!input || !datalist) {
+    return;
+  }
+
+  input.addEventListener("input", () => {
+    const query = input.value.trim();
+
+    window.clearTimeout(locationDebounce);
+
+    if (query.length < 3) {
+      datalist.innerHTML = "";
+      return;
+    }
+
+    locationDebounce = window.setTimeout(async () => {
+      const suggestions = await fetchCitySuggestions(query);
+
+      datalist.innerHTML = suggestions
+        .map((place) => `<option value="${escapeHtml(formatPlaceSuggestion(place))}"></option>`)
+        .join("");
+    }, 260);
+  });
+}
+
+async function fetchCitySuggestions(query) {
+  try {
+    const encodedQuery = encodeURIComponent(query);
+    const response = await fetch(
+      `https://geocoding-api.open-meteo.com/v1/search?name=${encodedQuery}&count=8&language=pt&format=json`,
+    );
+    const data = await response.json();
+
+    return data.results || [];
+  } catch {
+    return [];
+  }
+}
+
+function formatPlaceSuggestion(place) {
+  return [place.name, place.admin3, place.admin2, place.admin1, place.country]
+    .filter(Boolean)
+    .filter((value, index, list) => list.indexOf(value) === index)
+    .join(", ");
+}
+
 async function fetchWeather(city) {
-  const encodedCity = encodeURIComponent(city.trim());
+  const encodedCity = encodeURIComponent(city.split(",")[0].trim());
   const geoUrl = `https://geocoding-api.open-meteo.com/v1/search?name=${encodedCity}&count=10&language=pt&format=json`;
   const geoResponse = await fetch(geoUrl);
   const geoData = await geoResponse.json();
@@ -1126,10 +1331,15 @@ function chooseFood() {
 function chooseFoodKey() {
   const selected = state.answers.foods || [];
   const extra = state.answers.foodsExtra || "";
+  const customFood = splitExtra(extra)[0];
   const outsideActivity = state.answers.outsideActivity;
   const time = state.answers.time;
   const money = state.answers.money;
   let priority = ["pizza", "burger", "pasta", "snacks", "sushi", "dessert"];
+
+  if (customFood) {
+    return customFood;
+  }
 
   if (outsideActivity === "cafe" || time === "morning") {
     priority = ["snacks", "dessert", "pizza", "burger", "pasta", "sushi"];
@@ -1147,7 +1357,7 @@ function chooseFoodKey() {
     }
   }
 
-  return splitExtra(extra)[0] || selected[0] || "pizza";
+  return selected[0] || "pizza";
 }
 
 function chooseGenreKey() {
@@ -1193,39 +1403,17 @@ function getRecommendations() {
     matches = matches.filter((item) => item.type === screen);
   }
 
-  if (matches.length < 4 && (screen === "movie" || screen === "series")) {
-    matches = movieCatalog.filter(
-      (item) => item.genre === genre && item.type === screen,
-    );
+  if (matches.length === 0 && (screen === "movie" || screen === "series")) {
+    matches = movieCatalog.filter((item) => item.genre === genre && item.type === screen);
   }
 
-  if (matches.length < 4) {
+  if (matches.length === 0) {
     matches = uniqueRecommendations([
-      ...matches,
       ...movieCatalog.filter((item) => item.genre === genre),
     ]);
   }
 
-  if (matches.length < 4 && (screen === "movie" || screen === "series")) {
-    matches = uniqueRecommendations([
-      ...matches,
-      ...movieCatalog.filter((item) => item.type === screen),
-    ]);
-  }
-
-  if (matches.length < 4) {
-    matches = uniqueRecommendations([...matches, ...movieCatalog]);
-  }
-
-  if (matches.length === 0) {
-    matches = movieCatalog.filter((item) => providers.includes(item.provider));
-  }
-
-  if (matches.length === 0) {
-    matches = movieCatalog;
-  }
-
-  return matches;
+  return uniqueRecommendations(matches);
 }
 
 function uniqueRecommendations(items) {
@@ -1250,18 +1438,14 @@ function chooseRecommendation() {
   );
 
   if (available.length === 0) {
-    const expanded = getExpandedRecommendationPool();
-    available = expanded.filter(
-      (item) => !state.seenRecommendationKeys.includes(getRecommendationKey(item)),
-    );
-  }
-
-  if (available.length === 0) {
     state.seenRecommendationKeys = [];
     available = [...recommendations];
   }
 
-  const index = state.recommendationIndex % available.length;
+  const index =
+    available.length > 1
+      ? Math.floor(Math.random() * available.length)
+      : state.recommendationIndex % available.length;
   const selected = available[index];
   state.seenRecommendationKeys.push(getRecommendationKey(selected));
 
@@ -1272,21 +1456,59 @@ function getRecommendationKey(item) {
   return `${item.provider}:${item.type}:${item.title}`;
 }
 
-function getExpandedRecommendationPool() {
-  const screen = state.answers.screen;
-
-  if (screen === "movie" || screen === "series") {
-    return movieCatalog.filter((item) => item.type === screen);
-  }
-
-  return movieCatalog;
-}
-
 function chooseRecipe(foodKey) {
-  const recipes = recipeCatalog[foodKey] || recipeCatalog.snacks;
+  const normalizedFood = normalizeText(foodKey);
+  const recipes =
+    recipeCatalog[normalizedFood] ||
+    recipeCatalog[foodKey] ||
+    buildCustomRecipes(foodKey);
   const index = state.recipeIndex % recipes.length;
 
   return recipes[index];
+}
+
+function buildCustomRecipes(foodName) {
+  const name = foodName || "comida escolhida";
+
+  return [
+    {
+      title: `${capitalize(name)} caseiro prático`,
+      time: "30 minutos",
+      steps: [
+        `Separe os ingredientes principais para montar ${name} com calma.`,
+        "Prepare uma base simples, como pão, massa, arroz, salada ou wrap, dependendo da comida escolhida.",
+        "Finalize com um molho gostoso, algo crocante e uma bebida para acompanhar.",
+      ],
+    },
+    {
+      title: `${capitalize(name)} de frigideira`,
+      time: "25 minutos",
+      steps: [
+        `Corte os recheios do ${name} em pedaços pequenos para cozinhar mais rápido.`,
+        "Doure tudo na frigideira com azeite, sal, pimenta e temperos que vocês gostem.",
+        "Monte em prato, pão ou wrap e sirva ainda quente.",
+      ],
+    },
+    {
+      title: `${capitalize(name)} estilo date em casa`,
+      time: "35 minutos",
+      steps: [
+        `Escolha uma versão simples de ${name}, sem muitos ingredientes difíceis.`,
+        "Prepare em porções para dividir, deixando tudo bonito em uma travessa.",
+        "Finalize com molho, limão, ervas ou queijo, se combinar com a comida.",
+      ],
+    },
+  ];
+}
+
+function capitalize(value) {
+  const text = String(value || "").trim();
+
+  if (!text) {
+    return "";
+  }
+
+  return `${text[0].toUpperCase()}${text.slice(1)}`;
 }
 
 function getOptionImage(questionId, value) {
