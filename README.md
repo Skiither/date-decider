@@ -1,23 +1,23 @@
 # Decide o Date
 
-Um app simples em HTML, CSS e JavaScript para ajudar a decidir o que fazer num date.
+Um app simples em HTML, CSS e JavaScript para ajudar a decidir o que fazer em um date.
 
 ## O que o app faz
 
 - Pede a cidade do date e consulta o clima com a API Open-Meteo.
 - Pergunta se o casal prefere sair, ficar em casa ou deixar o app decidir.
-- Se a escolha for sair, pergunta o tipo de lugar: restaurante, cafe, barzinho ou passeio.
-- Se a escolha for sair, pergunta tambem se o date sera de manha, tarde ou noite.
+- Se a escolha for sair, pergunta o tipo de lugar: restaurante, café, barzinho ou passeio.
+- Se a escolha for sair, pergunta também se o date será de manhã, tarde ou noite.
 - Se a escolha for ficar em casa, pergunta sobre comida e entretenimento.
 - Ajuda a escolher entre gastar um pouco, economizar ou ficar no meio termo.
 - Permite escolher comidas famosas como pizza, hamburguer, sushi, lanche, massa e doces.
 - Deixa adicionar comidas personalizadas.
 - Pergunta quais assinaturas o casal tem: Netflix, Prime Video, HBO Max, Disney+ e Globoplay.
-- Pergunta se preferem filme, serie ou se o app pode decidir.
-- Permite escolher generos favoritos.
-- Recomenda um titulo especifico do catalogo interno.
-- Tem botao "Ja assisti a esse filme ou serie" para trocar por outro titulo do mesmo estilo.
-- Monta um date completo, decidindo uma comida, um lugar/atividade, um horario e dicas finais.
+- Pergunta se preferem filme, série ou se o app pode decidir.
+- Permite escolher gêneros favoritos.
+- Recomenda um título específico do catálogo interno.
+- Tem botão "Já assisti a esse filme ou série" para trocar por outro título do mesmo estilo.
+- Monta um date completo, decidindo uma comida, um lugar/atividade, um horário e dicas finais.
 
 ## Como abrir
 
@@ -51,14 +51,14 @@ date-decider/
 - JavaScript puro
 - Open-Meteo Geocoding API
 - Open-Meteo Forecast API
-- Catalogo interno de filmes e series por streaming/genero
+- Catálogo interno de filmes e séries por streaming/gênero
 
-## Observacao sobre o clima
+## Observação sobre o clima
 
-O app usa APIs publicas da Open-Meteo. Se estiver sem internet ou a API falhar,
-ele continua funcionando e cria um plano mais flexivel.
+O app usa APIs públicas da Open-Meteo. Se estiver sem internet ou a API falhar,
+ele continua funcionando e cria um plano mais flexível.
 
-## Observacao sobre streaming
+## Observação sobre streaming
 
-O catalogo de filmes e series e interno e curado manualmente. Catalogos reais de
-streaming mudam com frequencia e normalmente precisam de uma API de disponibilidade.
+O catálogo de filmes e séries é interno e curado manualmente. Catálogos reais de
+streaming mudam com frequência e normalmente precisam de uma API de disponibilidade.

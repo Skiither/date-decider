@@ -198,6 +198,7 @@ h2 {
 .option-image {
   position: relative;
   min-height: 116px;
+  background-color: #e8dfd0;
   background-position: center;
   background-size: cover;
 }
@@ -329,6 +330,7 @@ h2 {
   min-height: 220px;
   margin: 0 0 22px;
   border-radius: 8px;
+  background-color: #e8dfd0;
   background-position: center;
   background-size: cover;
   border: 1px solid var(--line);
@@ -351,6 +353,7 @@ h2 {
 
 .plan-card-image {
   min-height: 132px;
+  background-color: #e8dfd0;
   background-position: center;
   background-size: cover;
 }

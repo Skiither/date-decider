@@ -1,5 +1,5 @@
 const weatherCodes = {
-  0: "ceu limpo",
+  0: "céu limpo",
   1: "quase limpo",
   2: "algumas nuvens",
   3: "nublado",
@@ -26,6 +26,8 @@ const providerNames = {
 };
 
 const providerPriority = ["netflix", "prime", "max", "disney", "globoplay"];
+const fallbackImage =
+  "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80";
 
 const movieCatalog = [
   {
@@ -34,8 +36,8 @@ const movieCatalog = [
     provider: "netflix",
     genre: "comedia",
     image:
-      "https://image.tmdb.org/t/p/w500/vDGr1YdrlfbU9wxTOdpf3zChmv9.jpg",
-    why: "misterio leve, personagens divertidos e conversa facil depois.",
+      "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80",
+    why: "mistério leve, personagens divertidos e conversa fácil depois.",
   },
   {
     title: "La La Land",
@@ -43,8 +45,8 @@ const movieCatalog = [
     provider: "netflix",
     genre: "romance",
     image:
-      "https://image.tmdb.org/t/p/w500/uDO8zWDhfWwoFdKS4fzkUJt0Rf0.jpg",
-    why: "romance bonito, musica e clima de date classico.",
+      "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=800&q=80",
+    why: "romance bonito, música e clima de date clássico.",
   },
   {
     title: "The Adam Project",
@@ -52,8 +54,8 @@ const movieCatalog = [
     provider: "netflix",
     genre: "acao",
     image:
-      "https://image.tmdb.org/t/p/w500/wFjboE0aFZNbVOF05fzrka9Fqyx.jpg",
-    why: "acao leve, humor e ritmo facil de assistir a dois.",
+      "https://images.unsplash.com/photo-1535016120720-40c646be5580?auto=format&fit=crop&w=800&q=80",
+    why: "ação leve, humor e ritmo fácil de assistir a dois.",
   },
   {
     title: "A Sociedade da Neve",
@@ -61,7 +63,7 @@ const movieCatalog = [
     provider: "netflix",
     genre: "documentario",
     image:
-      "https://image.tmdb.org/t/p/w500/2e853FDVSIso600RqAMunPxiZjq.jpg",
+      "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=800&q=80",
     why: "intenso e com assunto forte para conversar depois.",
   },
   {
@@ -70,8 +72,8 @@ const movieCatalog = [
     provider: "prime",
     genre: "acao",
     image:
-      "https://image.tmdb.org/t/p/w500/dMOpdkrDC5dQxqNydgKxXjBKyAc.jpg",
-    why: "super-heroi com energia, surpresa e episodios que prendem.",
+      "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=800&q=80",
+    why: "super-herói com energia, surpresa e episódios que prendem.",
   },
   {
     title: "The Boys",
@@ -79,8 +81,8 @@ const movieCatalog = [
     provider: "prime",
     genre: "acao",
     image:
-      "https://image.tmdb.org/t/p/w500/stTEycfG9928HYGEISBFaG1ngjM.jpg",
-    why: "para quem quer algo mais caotico, adulto e cheio de assunto.",
+      "https://images.unsplash.com/photo-1497015289639-54688650d173?auto=format&fit=crop&w=800&q=80",
+    why: "para quem quer algo mais caótico, adulto e cheio de assunto.",
   },
   {
     title: "Red, White & Royal Blue",
@@ -88,7 +90,7 @@ const movieCatalog = [
     provider: "prime",
     genre: "romance",
     image:
-      "https://image.tmdb.org/t/p/w500/dD3vhyDRCCT90hf4rldHU6Wu3Va.jpg",
+      "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80",
     why: "romance leve, fofo e direto ao ponto.",
   },
   {
@@ -97,8 +99,8 @@ const movieCatalog = [
     provider: "prime",
     genre: "comedia",
     image:
-      "https://image.tmdb.org/t/p/w500/9bS0G5WlLw2mI5Y60JinqAYv8dB.jpg",
-    why: "dialogos rapidos, humor elegante e visual bonito.",
+      "https://images.unsplash.com/photo-1516670428252-df97bba108d1?auto=format&fit=crop&w=800&q=80",
+    why: "diálogos rápidos, humor elegante e visual bonito.",
   },
   {
     title: "The Last of Us",
@@ -106,8 +108,8 @@ const movieCatalog = [
     provider: "max",
     genre: "acao",
     image:
-      "https://image.tmdb.org/t/p/w500/uKvVjHNqB5VmOrdxqAt2F7J78ED.jpg",
-    why: "emocao, tensao e uma historia que rende conversa.",
+      "https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?auto=format&fit=crop&w=800&q=80",
+    why: "emoção, tensão e uma história que rende conversa.",
   },
   {
     title: "House of the Dragon",
@@ -115,8 +117,8 @@ const movieCatalog = [
     provider: "max",
     genre: "acao",
     image:
-      "https://image.tmdb.org/t/p/w500/z2yahl2uefxDCl0nogcRBstwruJ.jpg",
-    why: "fantasia, politica e clima de episodio grande.",
+      "https://images.unsplash.com/photo-1506466010722-395aa2bef877?auto=format&fit=crop&w=800&q=80",
+    why: "fantasia, política e clima de episódio grande.",
   },
   {
     title: "The White Lotus",
@@ -124,7 +126,7 @@ const movieCatalog = [
     provider: "max",
     genre: "comedia",
     image:
-      "https://image.tmdb.org/t/p/w500/gH5i3KvTtA7kD7Bx9EeeXL3HgXJ.jpg",
+      "https://images.unsplash.com/photo-1527224857830-43a7acc85260?auto=format&fit=crop&w=800&q=80",
     why: "sarcasmo, desconforto divertido e muita coisa para comentar.",
   },
   {
@@ -133,8 +135,8 @@ const movieCatalog = [
     provider: "max",
     genre: "romance",
     image:
-      "https://image.tmdb.org/t/p/w500/eCOtqtfvn7mxGl6nfmq4b1exJRc.jpg",
-    why: "romance diferente, sensivel e perfeito para um date mais calmo.",
+      "https://images.unsplash.com/photo-1494774157365-9e04c6720e47?auto=format&fit=crop&w=800&q=80",
+    why: "romance diferente, sensível e perfeito para um date mais calmo.",
   },
   {
     title: "Loki",
@@ -142,8 +144,8 @@ const movieCatalog = [
     provider: "disney",
     genre: "acao",
     image:
-      "https://image.tmdb.org/t/p/w500/kEl2t3OhXc3Zb9FBh1AuYzRTgZp.jpg",
-    why: "aventura estilosa, episodios curtos e facil de continuar depois.",
+      "https://images.unsplash.com/photo-1618336753974-aae8e04506aa?auto=format&fit=crop&w=800&q=80",
+    why: "aventura estilosa, episódios curtos e fácil de continuar depois.",
   },
   {
     title: "Elemental",
@@ -151,8 +153,8 @@ const movieCatalog = [
     provider: "disney",
     genre: "romance",
     image:
-      "https://image.tmdb.org/t/p/w500/4Y1WNkd88JXmGfhtWR7dmDAo1T2.jpg",
-    why: "leve, colorido e com romance bem acessivel.",
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80",
+    why: "leve, colorido e com romance bem acessível.",
   },
   {
     title: "Only Murders in the Building",
@@ -160,8 +162,8 @@ const movieCatalog = [
     provider: "disney",
     genre: "comedia",
     image:
-      "https://image.tmdb.org/t/p/w500/bZubW4eLAk2zqk44fSWRDTFfcba.jpg",
-    why: "misterio com humor e episodios faceis de ver em casal.",
+      "https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?auto=format&fit=crop&w=800&q=80",
+    why: "mistério com humor e episódios fáceis de ver em casal.",
   },
   {
     title: "Free Guy",
@@ -169,17 +171,17 @@ const movieCatalog = [
     provider: "disney",
     genre: "comedia",
     image:
-      "https://image.tmdb.org/t/p/w500/xmbU4JTUm8rsdtn7Y3Fcm30GpeT.jpg",
-    why: "divertido, leve e com energia de date descontraido.",
+      "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80",
+    why: "divertido, leve e com energia de date descontraído.",
   },
   {
-    title: "Sob Pressao",
+    title: "Sob Pressão",
     type: "series",
     provider: "globoplay",
     genre: "acao",
     image:
-      "https://image.tmdb.org/t/p/w500/7EqFq6O6YV5d4dJSp1H4cAZw2tT.jpg",
-    why: "drama medico brasileiro com ritmo forte.",
+      "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=800&q=80",
+    why: "drama médico brasileiro com ritmo forte.",
   },
   {
     title: "Todas as Flores",
@@ -187,17 +189,17 @@ const movieCatalog = [
     provider: "globoplay",
     genre: "romance",
     image:
-      "https://image.tmdb.org/t/p/w500/hZRYiQJg0l4DUT1V0wO4p3wuAEU.jpg",
+      "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80",
     why: "novela moderna, drama e romance para comentar junto.",
   },
   {
-    title: "Minha Mae e uma Peca",
+    title: "Minha Mãe é uma Peça",
     type: "movie",
     provider: "globoplay",
     genre: "comedia",
     image:
-      "https://image.tmdb.org/t/p/w500/6GmF6wCwHJRq2jD9kHq1vaSBL5B.jpg",
-    why: "comedia brasileira facil de rir junto.",
+      "https://images.unsplash.com/photo-1516670428252-df97bba108d1?auto=format&fit=crop&w=800&q=80",
+    why: "comédia brasileira fácil de rir junto.",
   },
   {
     title: "Assalto ao Banco Central",
@@ -205,8 +207,8 @@ const movieCatalog = [
     provider: "globoplay",
     genre: "acao",
     image:
-      "https://image.tmdb.org/t/p/w500/1dxGWIQq8p8AfXnVgSm4fGdBVdK.jpg",
-    why: "crime, tensao e um plano mais eletrico.",
+      "https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?auto=format&fit=crop&w=800&q=80",
+    why: "crime, tensão e um plano mais elétrico.",
   },
 ];
 
@@ -216,14 +218,14 @@ const questionBank = {
     kicker: "Primeiro detalhe",
     title: "Onde vai ser o date?",
     description:
-      "Escreve a cidade para eu tentar perceber se o tempo esta a pedir rua ou sofa.",
+      "Escreva a cidade para eu tentar entender se o tempo está pedindo rua ou sofá.",
     type: "location",
     placeholder: "Ex: Lisboa, Porto, Braga...",
   },
   place: {
     id: "place",
     kicker: "Plano base",
-    title: "Hoje voces querem sair ou ficar em casa?",
+    title: "Hoje vocês querem sair ou ficar em casa?",
     type: "single",
     options: [
       {
@@ -232,7 +234,7 @@ const questionBank = {
         image:
           "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80",
         title: "Sair de casa",
-        detail: "Quero um date com lugar, horario e plano fora.",
+        detail: "Quero um date com lugar, horário e plano fora.",
       },
       {
         value: "home",
@@ -271,8 +273,8 @@ const questionBank = {
         icon: "☕",
         image:
           "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80",
-        title: "Cafe",
-        detail: "Leve, fofo e bom para date de manha ou tarde.",
+        title: "Café",
+        detail: "Leve, fofo e bom para date de manhã ou tarde.",
       },
       {
         value: "bar",
@@ -280,7 +282,7 @@ const questionBank = {
         image:
           "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=80",
         title: "Barzinho",
-        detail: "Noite mais animada, bebida e clima descontraido.",
+        detail: "Noite mais animada, bebida e clima descontraído.",
       },
       {
         value: "walk",
@@ -294,8 +296,8 @@ const questionBank = {
   },
   time: {
     id: "time",
-    kicker: "Horario",
-    title: "Vai ser de manha, tarde ou noite?",
+    kicker: "Horário",
+    title: "Vai ser de manhã, tarde ou noite?",
     type: "single",
     options: [
       {
@@ -303,8 +305,8 @@ const questionBank = {
         icon: "🌤️",
         image:
           "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=800&q=80",
-        title: "Manha",
-        detail: "Cafe, brunch ou passeio leve.",
+        title: "Manhã",
+        detail: "Café, brunch ou passeio leve.",
       },
       {
         value: "afternoon",
@@ -312,7 +314,7 @@ const questionBank = {
         image:
           "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=800&q=80",
         title: "Tarde",
-        detail: "Cafe, lanche, passeio ou algo tranquilo.",
+        detail: "Café, lanche, passeio ou algo tranquilo.",
       },
       {
         value: "night",
@@ -327,7 +329,7 @@ const questionBank = {
   money: {
     id: "money",
     kicker: "Dinheiro",
-    title: "Qual e a vibe do bolso hoje?",
+    title: "Qual é a vibe do bolso hoje?",
     type: "single",
     options: [
       {
@@ -350,7 +352,7 @@ const questionBank = {
         value: "balanced",
         icon: "✨",
         image:
-          "https://images.unsplash.com/photo-1514517220034-6d6b70d35266?auto=format&fit=crop&w=800&q=80",
+          "https://images.unsplash.com/photo-1526367790999-0150786686a2?auto=format&fit=crop&w=800&q=80",
         title: "Meio termo",
         detail: "Gostoso, mas sem exagero.",
       },
@@ -359,8 +361,8 @@ const questionBank = {
   foods: {
     id: "foods",
     kicker: "Comida",
-    title: "O que voces gostam de comer?",
-    description: "Escolhe as favoritas. O app vai decidir uma so no final.",
+    title: "O que vocês gostam de comer?",
+    description: "Escolha as favoritas. O app vai decidir uma só no final.",
     type: "multi",
     options: [
       {
@@ -369,7 +371,7 @@ const questionBank = {
         image:
           "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80",
         title: "Pizza",
-        detail: "Facil de dividir.",
+        detail: "Fácil de dividir.",
       },
       {
         value: "burger",
@@ -393,7 +395,7 @@ const questionBank = {
         image:
           "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=80",
         title: "Lanche",
-        detail: "Leve e rapido.",
+        detail: "Leve e rápido.",
       },
       {
         value: "pasta",
@@ -412,13 +414,13 @@ const questionBank = {
         detail: "Para fechar bonito.",
       },
     ],
-    extraLabel: "Mais comidas que voces gostam",
+    extraLabel: "Mais comidas que vocês gostam",
     extraPlaceholder: "Ex: tacos, ramen, churrasco...",
   },
   outsideFinish: {
     id: "outsideFinish",
     kicker: "Fechamento",
-    title: "Como voces querem terminar o date fora?",
+    title: "Como vocês querem terminar o date fora?",
     type: "single",
     options: [
       {
@@ -458,8 +460,8 @@ const questionBank = {
   providers: {
     id: "providers",
     kicker: "Streaming",
-    title: "Quais assinaturas voces tem?",
-    description: "Escolhe as plataformas disponiveis para o app decidir o que assistir.",
+    title: "Quais assinaturas vocês têm?",
+    description: "Escolha as plataformas disponíveis para o app decidir o que assistir.",
     type: "multi",
     options: [
       {
@@ -468,7 +470,7 @@ const questionBank = {
         image:
           "https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?auto=format&fit=crop&w=800&q=80",
         title: "Netflix",
-        detail: "Filmes e series populares.",
+        detail: "Filmes e séries populares.",
       },
       {
         value: "prime",
@@ -476,7 +478,7 @@ const questionBank = {
         image:
           "https://images.unsplash.com/photo-1594909122845-11baa439b7bf?auto=format&fit=crop&w=800&q=80",
         title: "Prime Video",
-        detail: "Aventura, romance e series fortes.",
+        detail: "Aventura, romance e séries fortes.",
       },
       {
         value: "max",
@@ -484,7 +486,7 @@ const questionBank = {
         image:
           "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80",
         title: "HBO Max",
-        detail: "Series premium e filmes intensos.",
+        detail: "Séries premium e filmes intensos.",
       },
       {
         value: "disney",
@@ -500,14 +502,14 @@ const questionBank = {
         image:
           "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=800&q=80",
         title: "Globoplay",
-        detail: "Conteudo brasileiro e novelas.",
+        detail: "Conteúdo brasileiro e novelas.",
       },
     ],
   },
   screen: {
     id: "screen",
     kicker: "Depois da comida",
-    title: "Preferem filme ou serie?",
+    title: "Preferem filme ou série?",
     type: "single",
     options: [
       {
@@ -516,15 +518,15 @@ const questionBank = {
         image:
           "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80",
         title: "Filme",
-        detail: "Uma escolha fechada, com comeco e fim.",
+        detail: "Uma escolha fechada, com começo e fim.",
       },
       {
         value: "series",
         icon: "📺",
         image:
           "https://images.unsplash.com/photo-1521967906867-14ec9d64bee8?auto=format&fit=crop&w=800&q=80",
-        title: "Serie",
-        detail: "Bom para assistir um episodio e continuar depois.",
+        title: "Série",
+        detail: "Bom para assistir um episódio e continuar depois.",
       },
       {
         value: "any",
@@ -532,15 +534,15 @@ const questionBank = {
         image:
           "https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=800&q=80",
         title: "Tanto faz",
-        detail: "O app decide o melhor titulo.",
+        detail: "O app decide o melhor título.",
       },
     ],
   },
   genres: {
     id: "genres",
     kicker: "Gosto dos dois",
-    title: "Quais generos combinam mais?",
-    description: "Marca os favoritos. O app vai escolher um e um titulo especifico.",
+    title: "Quais gêneros combinam mais?",
+    description: "Marque os favoritos. O app vai escolher um gênero e um título específico.",
     type: "multi",
     options: [
       {
@@ -548,7 +550,7 @@ const questionBank = {
         icon: "😂",
         image:
           "https://images.unsplash.com/photo-1516670428252-df97bba108d1?auto=format&fit=crop&w=800&q=80",
-        title: "Comedia",
+        title: "Comédia",
         detail: "Rir sem complicar.",
       },
       {
@@ -557,14 +559,14 @@ const questionBank = {
         image:
           "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=800&q=80",
         title: "Romance",
-        detail: "Clima de date classico.",
+        detail: "Clima de date clássico.",
       },
       {
         value: "acao",
         icon: "💥",
         image:
           "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=800&q=80",
-        title: "Acao",
+        title: "Ação",
         detail: "Energia e adrenalina.",
       },
       {
@@ -592,8 +594,8 @@ const questionBank = {
         detail: "Para assistir juntinhos.",
       },
     ],
-    extraLabel: "Outro genero favorito",
-    extraPlaceholder: "Ex: true crime, fantasia, culinaria...",
+    extraLabel: "Outro gênero favorito",
+    extraPlaceholder: "Ex: true crime, fantasia, culinária...",
   },
 };
 
@@ -609,7 +611,7 @@ const foodNames = {
 const genreNames = {
   comedia: "comedia",
   romance: "romance",
-  acao: "acao",
+  acao: "ação",
   terror: "terror",
   documentario: "documentario",
   anime: "anime",
@@ -810,7 +812,7 @@ async function fetchWeather(city) {
   if (!geoData.results || geoData.results.length === 0) {
     return {
       isSunny: false,
-      summary: "Nao encontrei essa cidade, entao vou decidir sem confiar no clima.",
+      summary: "Não encontrei essa cidade, então vou decidir sem confiar no clima.",
     };
   }
 
@@ -831,7 +833,7 @@ async function fetchWeather(city) {
   if (!current) {
     return {
       isSunny: false,
-      summary: `Nao consegui ler o clima em ${place.name}, entao vou manter um plano flexivel.`,
+      summary: `Não consegui ler o clima em ${place.name}, então vou manter um plano flexível.`,
     };
   }
 
@@ -861,7 +863,7 @@ function collectCurrentAnswer() {
   if (question.type === "location") {
     const city = String(formData.get(question.id) || "").trim();
     if (!city) {
-      showError("Coloca uma cidade para continuar.");
+      showError("Coloque uma cidade para continuar.");
       return false;
     }
     state.answers[question.id] = city;
@@ -873,7 +875,7 @@ function collectCurrentAnswer() {
     const extra = String(formData.get(`${question.id}Extra`) || "").trim();
 
     if (selected.length === 0 && !extra) {
-      showError("Escolhe pelo menos uma opcao ou escreve uma ideia tua.");
+      showError("Escolha pelo menos uma opção ou escreva uma ideia sua.");
       return false;
     }
 
@@ -884,7 +886,7 @@ function collectCurrentAnswer() {
 
   const selected = formData.get(question.id);
   if (!selected) {
-    showError("Escolhe uma opcao para continuar.");
+    showError("Escolha uma opção para continuar.");
     return false;
   }
 
@@ -980,6 +982,27 @@ function getRecommendations() {
     matches = matches.filter((item) => item.type === screen);
   }
 
+  if (matches.length < 2 && (screen === "movie" || screen === "series")) {
+    matches = movieCatalog.filter(
+      (item) => item.genre === genre && item.type === screen,
+    );
+  }
+
+  if (matches.length < 2) {
+    matches = movieCatalog.filter((item) => item.genre === genre);
+  }
+
+  if (matches.length < 2 && (screen === "movie" || screen === "series")) {
+    matches = uniqueRecommendations([
+      ...matches,
+      ...movieCatalog.filter((item) => item.type === screen),
+    ]);
+  }
+
+  if (matches.length < 2) {
+    matches = uniqueRecommendations([...matches, ...movieCatalog]);
+  }
+
   if (matches.length === 0) {
     matches = movieCatalog.filter((item) => providers.includes(item.provider));
   }
@@ -989,6 +1012,21 @@ function getRecommendations() {
   }
 
   return matches;
+}
+
+function uniqueRecommendations(items) {
+  const seen = new Set();
+
+  return items.filter((item) => {
+    const key = `${item.provider}-${item.title}`;
+
+    if (seen.has(key)) {
+      return false;
+    }
+
+    seen.add(key);
+    return true;
+  });
 }
 
 function chooseRecommendation() {
@@ -1022,8 +1060,8 @@ function pickOutsidePlace(food) {
 
   if (activity === "cafe") {
     return time === "morning"
-      ? `um cafe com brunch em ${city}`
-      : `um cafe bonito com ${food} em ${city}`;
+      ? `um café com brunch em ${city}`
+      : `um café bonito com ${food} em ${city}`;
   }
 
   if (activity === "bar") {
@@ -1038,16 +1076,16 @@ function buildOutsideResult() {
   const place = pickOutsidePlace(food);
   const activity = state.answers.outsideActivity;
   const timeLabels = {
-    morning: "de manha",
-    afternoon: "a tarde",
-    night: "a noite",
+    morning: "de manhã",
+    afternoon: "à tarde",
+    night: "à noite",
   };
-  const time = timeLabels[state.answers.time] || "no melhor horario";
+  const time = timeLabels[state.answers.time] || "no melhor horário";
 
   return {
     mode: "outside",
     title: `Date completo em ${state.answers.location}`,
-    description: `Plano fechado: voces vao sair ${time}, ir para ${place} e pedir ${food}. Cheguem sem pressa, sentem num lugar confortavel e deixem a conversa puxar o ritmo. Depois da comida, o fechamento decidido e ${getOptionTitle("outsideFinish", state.answers.outsideFinish).toLowerCase()}, sem abrir outra rodada de indecisao.`,
+    description: `Plano fechado: vocês vão sair ${time}, ir para ${place} e pedir ${food}. Cheguem sem pressa, sentem em um lugar confortável e deixem a conversa puxar o ritmo. Depois da comida, o fechamento decidido é ${getOptionTitle("outsideFinish", state.answers.outsideFinish).toLowerCase()}, sem abrir outra rodada de indecisão.`,
     hero: getOptionImage("outsideActivity", activity),
     cards: [
       {
@@ -1065,20 +1103,20 @@ function buildOutsideResult() {
       {
         label: "Final",
         title: getOptionTitle("outsideFinish", state.answers.outsideFinish),
-        detail: "O app tambem decidiu como fechar o encontro.",
+        detail: "O app também decidiu como fechar o encontro.",
         image: getOptionImage("outsideFinish", state.answers.outsideFinish),
       },
       {
         label: "Comida",
         title: food,
-        detail: `A escolha do app para comer hoje e ${food}.`,
+        detail: `A escolha do app para comer hoje é ${food}.`,
         image: getOptionImage("foods", state.answers.foods?.[0]) || getOptionImage("foods", "pizza"),
       },
     ],
     tips: [
-      state.weather?.summary || "Confere o clima antes de sair.",
+      state.weather?.summary || "Confira o clima antes de sair.",
       "Reserva ou salva o local no mapa antes de sair.",
-      "Se estiver muito cheio, use a segunda opcao no mesmo bairro e mantenha o plano.",
+      "Se estiver muito cheio, use a segunda opção no mesmo bairro e mantenha o plano.",
     ],
   };
 }
@@ -1097,20 +1135,20 @@ function buildHomeResult() {
   return {
     mode: "home",
     title: "Date completo em casa",
-    description: `Plano fechado: voces vao ${action}, arrumar a sala com luz baixa, deixar bebida pronta e assistir ${recommendation.title} na ${providerNames[recommendation.provider]}. O genero decidido e ${genreNames[recommendation.genre] || recommendation.genre}; a ideia e um date confortavel, com comida definida e titulo escolhido sem debate infinito.`,
+    description: `Plano fechado: vocês vão ${action}, arrumar a sala com luz baixa, deixar bebida pronta e assistir ${recommendation.title} na ${providerNames[recommendation.provider]}. O gênero decidido é ${genreNames[recommendation.genre] || recommendation.genre}; a ideia é um date confortável, com comida definida e título escolhido sem debate infinito.`,
     hero: recommendation.image,
     recommendation,
     cards: [
       {
         label: "Comida",
         title: food,
-        detail: `A escolha do app para hoje e ${food}.`,
+        detail: `A escolha do app para hoje é ${food}.`,
         image: getOptionImage("foods", state.answers.foods?.[0]) || getOptionImage("foods", "pizza"),
       },
       {
         label: "Streaming",
         title: providerNames[recommendation.provider],
-        detail: `${recommendation.type === "series" ? "Serie" : "Filme"} escolhido no catalogo.`,
+        detail: `${recommendation.type === "series" ? "Série" : "Filme"} escolhido no catálogo.`,
         image: recommendation.image,
       },
       {
@@ -1121,9 +1159,9 @@ function buildHomeResult() {
       },
     ],
     tips: [
-      state.weather?.summary || "Como e em casa, o clima nao atrapalha o plano.",
-      "Deixa a comida resolvida antes de apertar play.",
-      "Se ja assistiram, toca no botao abaixo para trocar por outro do mesmo estilo.",
+      state.weather?.summary || "Como é em casa, o clima não atrapalha o plano.",
+      "Deixem a comida resolvida antes de apertar play.",
+      "Se vocês já assistiram, toque no botão abaixo para trocar por outro do mesmo estilo.",
     ],
   };
 }
@@ -1167,17 +1205,21 @@ function renderWatchCard(result) {
 
   return `
     <article class="watch-card">
-      <img src="${item.image}" alt="Poster de ${escapeHtml(item.title)}" />
+      <img
+        src="${item.image}"
+        alt="Imagem de ${escapeHtml(item.title)}"
+        onerror="this.onerror=null;this.src='${fallbackImage}'"
+      />
       <div>
         <p class="eyebrow">Escolha para assistir</p>
         <h3>${escapeHtml(item.title)}</h3>
         <p>
-          ${item.type === "series" ? "Serie" : "Filme"} de
+          ${item.type === "series" ? "Série" : "Filme"} de
           ${genreNames[item.genre] || item.genre} na ${providerNames[item.provider]}.
           ${item.why}
         </p>
         <button class="ghost-button" id="watched-button" type="button">
-          Ja assisti a esse filme ou serie
+          Já assisti a esse filme ou série
         </button>
       </div>
     </article>
@@ -1237,7 +1279,7 @@ async function handleSubmit(event) {
     } catch {
       state.weather = {
         isSunny: false,
-        summary: "Nao consegui consultar o clima agora, entao vou deixar o plano mais protegido.",
+        summary: "Não consegui consultar o clima agora, então vou deixar o plano mais protegido.",
       };
     } finally {
       state.isLoadingWeather = false;
