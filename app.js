@@ -415,6 +415,46 @@ const questionBank = {
     extraLabel: "Mais comidas que voces gostam",
     extraPlaceholder: "Ex: tacos, ramen, churrasco...",
   },
+  outsideFinish: {
+    id: "outsideFinish",
+    kicker: "Fechamento",
+    title: "Como voces querem terminar o date fora?",
+    type: "single",
+    options: [
+      {
+        value: "dessert",
+        icon: "",
+        image:
+          "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=800&q=80",
+        title: "Sobremesa",
+        detail: "Doce final e conversa sem pressa.",
+      },
+      {
+        value: "walk",
+        icon: "",
+        image:
+          "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80",
+        title: "Caminhada curta",
+        detail: "Andar um pouco e deixar o date respirar.",
+      },
+      {
+        value: "drink",
+        icon: "",
+        image:
+          "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=80",
+        title: "Drink",
+        detail: "Mais uma parada leve antes de ir embora.",
+      },
+      {
+        value: "calm",
+        icon: "",
+        image:
+          "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=800&q=80",
+        title: "Encerrar tranquilo",
+        detail: "Sem esticar demais, deixando gosto de quero mais.",
+      },
+    ],
+  },
   providers: {
     id: "providers",
     kicker: "Streaming",
@@ -584,6 +624,8 @@ const state = {
   currentResult: null,
 };
 
+const totalSteps = 7;
+
 const form = document.querySelector("#date-form");
 const questionArea = document.querySelector("#question-area");
 const backButton = document.querySelector("#back-button");
@@ -610,6 +652,7 @@ function getQuestions() {
       questionBank.time,
       questionBank.money,
       questionBank.foods,
+      questionBank.outsideFinish,
     ];
   }
 
@@ -626,6 +669,10 @@ function getQuestions() {
   }
 
   return [questionBank.location, questionBank.place];
+}
+
+function getTotalStepCount() {
+  return totalSteps;
 }
 
 function escapeHtml(value) {
@@ -679,9 +726,7 @@ function renderOption(question, option, selected) {
         class="option-image"
         style="background-image: url('${option.image}')"
         aria-hidden="true"
-      >
-        <span class="option-icon">${option.icon}</span>
-      </span>
+      ></span>
       <span class="option-copy">
         <span class="option-title">${option.title}</span>
         <span class="option-detail">${option.detail}</span>
@@ -694,9 +739,10 @@ function renderQuestion() {
   const questions = getQuestions();
   const question = questions[state.step];
   const selected = state.answers[question.id];
-  const progress = ((state.step + 1) / questions.length) * 100;
+  const total = getTotalStepCount();
+  const progress = ((state.step + 1) / total) * 100;
 
-  stepLabel.textContent = `Pergunta ${state.step + 1} de ${questions.length}`;
+  stepLabel.textContent = `Pergunta ${state.step + 1} de ${total}`;
   progressBar.style.width = `${progress}%`;
   backButton.disabled = state.step === 0 || state.isLoadingWeather;
   nextButton.disabled = state.isLoadingWeather;
@@ -1001,7 +1047,7 @@ function buildOutsideResult() {
   return {
     mode: "outside",
     title: `Date completo em ${state.answers.location}`,
-    description: `Plano fechado: voces vao sair ${time}, ir para ${place} e pedir ${food}. Cheguem sem pressa, sentem num lugar confortavel e deixem a conversa puxar o ritmo. Depois da comida, a continuacao decidida e uma caminhada curta ou sobremesa por perto, sem abrir outra rodada de indecisao.`,
+    description: `Plano fechado: voces vao sair ${time}, ir para ${place} e pedir ${food}. Cheguem sem pressa, sentem num lugar confortavel e deixem a conversa puxar o ritmo. Depois da comida, o fechamento decidido e ${getOptionTitle("outsideFinish", state.answers.outsideFinish).toLowerCase()}, sem abrir outra rodada de indecisao.`,
     hero: getOptionImage("outsideActivity", activity),
     cards: [
       {
@@ -1015,6 +1061,12 @@ function buildOutsideResult() {
         title: getOptionTitle("time", state.answers.time),
         detail: `Ir ${time}`,
         image: getOptionImage("time", state.answers.time),
+      },
+      {
+        label: "Final",
+        title: getOptionTitle("outsideFinish", state.answers.outsideFinish),
+        detail: "O app tambem decidiu como fechar o encontro.",
+        image: getOptionImage("outsideFinish", state.answers.outsideFinish),
       },
       {
         label: "Comida",
