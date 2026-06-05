@@ -3,17 +3,17 @@ const weatherCodes = {
   1: "quase limpo",
   2: "algumas nuvens",
   3: "nublado",
-  45: "nevoeiro",
-  48: "nevoeiro",
+  45: "neblina",
+  48: "neblina",
   51: "chuva fraca",
   53: "chuva",
   55: "chuva forte",
   61: "chuva fraca",
   63: "chuva",
   65: "chuva forte",
-  80: "aguaceiros",
-  81: "aguaceiros",
-  82: "aguaceiros fortes",
+  80: "pancadas de chuva",
+  81: "pancadas de chuva",
+  82: "pancadas fortes de chuva",
   95: "trovoada",
 };
 
@@ -35,8 +35,9 @@ const movieCatalog = [
     type: "movie",
     provider: "netflix",
     genre: "comedia",
-    image:
-      "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80",
+    image: "https://image.tmdb.org/t/p/w500/vDGr1YdrlfbU9wxTOdpf3zChmv9.jpg",
+    synopsis:
+      "O detetive Benoit Blanc viaja para a Grécia para investigar um mistério envolvendo um bilionário da tecnologia e seu grupo de amigos.",
     why: "mistério leve, personagens divertidos e conversa fácil depois.",
   },
   {
@@ -44,8 +45,9 @@ const movieCatalog = [
     type: "movie",
     provider: "netflix",
     genre: "romance",
-    image:
-      "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=800&q=80",
+    image: "https://image.tmdb.org/t/p/w500/uDO8zWDhfWwoFdKS4fzkUJt0Rf0.jpg",
+    synopsis:
+      "Uma atriz iniciante e um pianista de jazz se apaixonam em Los Angeles enquanto tentam equilibrar amor, sonhos e carreira.",
     why: "romance bonito, música e clima de date clássico.",
   },
   {
@@ -53,8 +55,9 @@ const movieCatalog = [
     type: "movie",
     provider: "netflix",
     genre: "acao",
-    image:
-      "https://images.unsplash.com/photo-1535016120720-40c646be5580?auto=format&fit=crop&w=800&q=80",
+    image: "https://image.tmdb.org/t/p/w500/wFjboE0aFZNbVOF05fzrka9Fqyx.jpg",
+    synopsis:
+      "Um piloto que viaja no tempo encontra sua versão criança e precisa trabalhar com ela para salvar o futuro.",
     why: "ação leve, humor e ritmo fácil de assistir a dois.",
   },
   {
@@ -62,8 +65,9 @@ const movieCatalog = [
     type: "movie",
     provider: "netflix",
     genre: "documentario",
-    image:
-      "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=800&q=80",
+    image: "https://image.tmdb.org/t/p/w500/2e853FDVSIso600RqAMunPxiZjq.jpg",
+    synopsis:
+      "Após a queda de um avião nos Andes, sobreviventes enfrentam condições extremas e decisões impossíveis para continuar vivos.",
     why: "intenso e com assunto forte para conversar depois.",
   },
   {
@@ -71,8 +75,9 @@ const movieCatalog = [
     type: "series",
     provider: "prime",
     genre: "acao",
-    image:
-      "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=800&q=80",
+    image: "https://static.tvmaze.com/uploads/images/medium_portrait/618/1545777.jpg",
+    synopsis:
+      "Mark Grayson é um adolescente comum, exceto pelo fato de ser filho do super-herói mais poderoso do planeta.",
     why: "super-herói com energia, surpresa e episódios que prendem.",
   },
   {
@@ -80,8 +85,9 @@ const movieCatalog = [
     type: "series",
     provider: "prime",
     genre: "acao",
-    image:
-      "https://images.unsplash.com/photo-1497015289639-54688650d173?auto=format&fit=crop&w=800&q=80",
+    image: "https://static.tvmaze.com/uploads/images/medium_portrait/619/1547768.jpg",
+    synopsis:
+      "Um grupo de vigilantes enfrenta super-heróis corruptos que abusam da fama, do poder e da influência.",
     why: "para quem quer algo mais caótico, adulto e cheio de assunto.",
   },
   {
@@ -89,26 +95,29 @@ const movieCatalog = [
     type: "movie",
     provider: "prime",
     genre: "romance",
-    image:
-      "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80",
+    image: "https://image.tmdb.org/t/p/w500/dD3vhyDRCCT90hf4rldHU6Wu3Va.jpg",
+    synopsis:
+      "O filho da presidente dos Estados Unidos e um príncipe britânico transformam uma rivalidade pública em romance secreto.",
     why: "romance leve, fofo e direto ao ponto.",
   },
   {
-    title: "The Marvelous Mrs. Maisel",
+    title: "Only Murders in the Building",
     type: "series",
-    provider: "prime",
+    provider: "disney",
     genre: "comedia",
-    image:
-      "https://images.unsplash.com/photo-1516670428252-df97bba108d1?auto=format&fit=crop&w=800&q=80",
-    why: "diálogos rápidos, humor elegante e visual bonito.",
+    image: "https://static.tvmaze.com/uploads/images/medium_portrait/586/1466415.jpg",
+    synopsis:
+      "Três vizinhos obcecados por crimes reais acabam investigando assassinatos no próprio prédio.",
+    why: "mistério com humor e episódios fáceis de ver em casal.",
   },
   {
     title: "The Last of Us",
     type: "series",
     provider: "max",
     genre: "acao",
-    image:
-      "https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?auto=format&fit=crop&w=800&q=80",
+    image: "https://static.tvmaze.com/uploads/images/medium_portrait/563/1409008.jpg",
+    synopsis:
+      "Depois de uma pandemia destruir a civilização, um sobrevivente precisa proteger uma garota que pode ser a última esperança da humanidade.",
     why: "emoção, tensão e uma história que rende conversa.",
   },
   {
@@ -116,26 +125,19 @@ const movieCatalog = [
     type: "series",
     provider: "max",
     genre: "acao",
-    image:
-      "https://images.unsplash.com/photo-1506466010722-395aa2bef877?auto=format&fit=crop&w=800&q=80",
+    image: "https://static.tvmaze.com/uploads/images/medium_portrait/627/1568449.jpg",
+    synopsis:
+      "Ambientada antes de Game of Thrones, a série acompanha a disputa interna da Casa Targaryen pelo trono.",
     why: "fantasia, política e clima de episódio grande.",
-  },
-  {
-    title: "The White Lotus",
-    type: "series",
-    provider: "max",
-    genre: "comedia",
-    image:
-      "https://images.unsplash.com/photo-1527224857830-43a7acc85260?auto=format&fit=crop&w=800&q=80",
-    why: "sarcasmo, desconforto divertido e muita coisa para comentar.",
   },
   {
     title: "Her",
     type: "movie",
     provider: "max",
     genre: "romance",
-    image:
-      "https://images.unsplash.com/photo-1494774157365-9e04c6720e47?auto=format&fit=crop&w=800&q=80",
+    image: "https://image.tmdb.org/t/p/w500/eCOtqtfvn7mxGl6nfmq4b1exJRc.jpg",
+    synopsis:
+      "Um homem solitário se apaixona por um sistema operacional com voz, personalidade e inteligência próprias.",
     why: "romance diferente, sensível e perfeito para um date mais calmo.",
   },
   {
@@ -143,8 +145,9 @@ const movieCatalog = [
     type: "series",
     provider: "disney",
     genre: "acao",
-    image:
-      "https://images.unsplash.com/photo-1618336753974-aae8e04506aa?auto=format&fit=crop&w=800&q=80",
+    image: "https://static.tvmaze.com/uploads/images/medium_portrait/478/1195717.jpg",
+    synopsis:
+      "O deus da trapaça sai de sua linha do tempo e se envolve com uma organização que monitora o multiverso.",
     why: "aventura estilosa, episódios curtos e fácil de continuar depois.",
   },
   {
@@ -152,26 +155,19 @@ const movieCatalog = [
     type: "movie",
     provider: "disney",
     genre: "romance",
-    image:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80",
+    image: "https://image.tmdb.org/t/p/w500/4Y1WNkd88JXmGfhtWR7dmDAo1T2.jpg",
+    synopsis:
+      "Em uma cidade onde fogo, água, terra e ar convivem, uma jovem de fogo cria uma conexão inesperada com um rapaz de água.",
     why: "leve, colorido e com romance bem acessível.",
-  },
-  {
-    title: "Only Murders in the Building",
-    type: "series",
-    provider: "disney",
-    genre: "comedia",
-    image:
-      "https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?auto=format&fit=crop&w=800&q=80",
-    why: "mistério com humor e episódios fáceis de ver em casal.",
   },
   {
     title: "Free Guy",
     type: "movie",
     provider: "disney",
     genre: "comedia",
-    image:
-      "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80",
+    image: "https://image.tmdb.org/t/p/w500/xmbU4JTUm8rsdtn7Y3Fcm30GpeT.jpg",
+    synopsis:
+      "Um atendente de banco descobre que vive dentro de um videogame e decide virar o herói da própria história.",
     why: "divertido, leve e com energia de date descontraído.",
   },
   {
@@ -179,8 +175,9 @@ const movieCatalog = [
     type: "series",
     provider: "globoplay",
     genre: "acao",
-    image:
-      "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=800&q=80",
+    image: "https://static.tvmaze.com/uploads/images/medium_portrait/136/341090.jpg",
+    synopsis:
+      "A rotina intensa de uma equipe médica em um hospital público do Rio de Janeiro, entre emergências e conflitos pessoais.",
     why: "drama médico brasileiro com ritmo forte.",
   },
   {
@@ -188,99 +185,50 @@ const movieCatalog = [
     type: "series",
     provider: "globoplay",
     genre: "romance",
-    image:
-      "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80",
+    image: "https://static.tvmaze.com/uploads/images/medium_portrait/435/1088682.jpg",
+    synopsis:
+      "Uma trama brasileira de romance, vingança e recomeços, com segredos familiares e personagens em choque.",
     why: "novela moderna, drama e romance para comentar junto.",
-  },
-  {
-    title: "Minha Mãe é uma Peça",
-    type: "movie",
-    provider: "globoplay",
-    genre: "comedia",
-    image:
-      "https://images.unsplash.com/photo-1516670428252-df97bba108d1?auto=format&fit=crop&w=800&q=80",
-    why: "comédia brasileira fácil de rir junto.",
-  },
-  {
-    title: "Assalto ao Banco Central",
-    type: "movie",
-    provider: "globoplay",
-    genre: "acao",
-    image:
-      "https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?auto=format&fit=crop&w=800&q=80",
-    why: "crime, tensão e um plano mais elétrico.",
   },
   {
     title: "Attack on Titan",
     type: "series",
     provider: "netflix",
     genre: "anime",
-    image:
-      "https://images.unsplash.com/photo-1618336753974-aae8e04506aa?auto=format&fit=crop&w=800&q=80",
+    image: "https://static.tvmaze.com/uploads/images/medium_portrait/476/1191684.jpg",
+    synopsis:
+      "A humanidade vive cercada por muralhas para sobreviver a titãs gigantes, até que uma invasão muda tudo.",
     why: "anime intenso, cheio de viradas e perfeito para quem gosta de teorias.",
-  },
-  {
-    title: "Your Name",
-    type: "movie",
-    provider: "prime",
-    genre: "anime",
-    image:
-      "https://images.unsplash.com/photo-1618336753974-aae8e04506aa?auto=format&fit=crop&w=800&q=80",
-    why: "anime romântico, bonito e com clima perfeito para date em casa.",
   },
   {
     title: "Spy x Family",
     type: "series",
     provider: "disney",
     genre: "anime",
-    image:
-      "https://images.unsplash.com/photo-1618336753974-aae8e04506aa?auto=format&fit=crop&w=800&q=80",
+    image: "https://static.tvmaze.com/uploads/images/medium_portrait/590/1477119.jpg",
+    synopsis:
+      "Um espião precisa formar uma família falsa para cumprir uma missão, sem saber que a esposa é assassina e a filha é telepata.",
     why: "leve, divertido e fácil de assistir sem pesar o clima.",
-  },
-  {
-    title: "Invocação do Mal",
-    type: "movie",
-    provider: "max",
-    genre: "terror",
-    image:
-      "https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=800&q=80",
-    why: "terror clássico, bom para assistir juntinho e comentar depois.",
   },
   {
     title: "A Queda da Casa de Usher",
     type: "series",
     provider: "netflix",
     genre: "terror",
-    image:
-      "https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=800&q=80",
+    image: "https://static.tvmaze.com/uploads/images/medium_portrait/476/1191759.jpg",
+    synopsis:
+      "Dois irmãos constroem uma dinastia farmacêutica, mas a família começa a ruir quando seus herdeiros morrem de forma misteriosa.",
     why: "terror elegante, mistério e episódios que prendem.",
-  },
-  {
-    title: "Nope",
-    type: "movie",
-    provider: "prime",
-    genre: "terror",
-    image:
-      "https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=800&q=80",
-    why: "suspense diferente, visual marcante e conversa garantida depois.",
   },
   {
     title: "Chef's Table",
     type: "series",
     provider: "netflix",
     genre: "documentario",
-    image:
-      "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=800&q=80",
+    image: "https://static.tvmaze.com/uploads/images/medium_portrait/184/461738.jpg",
+    synopsis:
+      "Uma série documental que entra nas cozinhas e na mente de chefs renomados ao redor do mundo.",
     why: "documentário bonito, inspirador e ainda combina com comida.",
-  },
-  {
-    title: "Free Solo",
-    type: "movie",
-    provider: "disney",
-    genre: "documentario",
-    image:
-      "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=800&q=80",
-    why: "tenso, impressionante e ótimo para conversar depois.",
   },
 ];
 
@@ -872,6 +820,7 @@ const state = {
   weather: null,
   isLoadingWeather: false,
   recommendationIndex: 0,
+  seenRecommendationKeys: [],
   recipeIndex: 0,
   currentResult: null,
 };
@@ -946,7 +895,7 @@ function normalizeText(value) {
 
 function renderWeatherNote() {
   if (state.isLoadingWeather) {
-    return `<p class="weather-note">A espreitar o clima da cidade...</p>`;
+    return `<p class="weather-note">Consultando o clima da cidade...</p>`;
   }
 
   if (!state.weather) {
@@ -1296,8 +1245,41 @@ function uniqueRecommendations(items) {
 
 function chooseRecommendation() {
   const recommendations = getRecommendations();
-  const index = state.recommendationIndex % recommendations.length;
-  return recommendations[index];
+  let available = recommendations.filter(
+    (item) => !state.seenRecommendationKeys.includes(getRecommendationKey(item)),
+  );
+
+  if (available.length === 0) {
+    const expanded = getExpandedRecommendationPool();
+    available = expanded.filter(
+      (item) => !state.seenRecommendationKeys.includes(getRecommendationKey(item)),
+    );
+  }
+
+  if (available.length === 0) {
+    state.seenRecommendationKeys = [];
+    available = [...recommendations];
+  }
+
+  const index = state.recommendationIndex % available.length;
+  const selected = available[index];
+  state.seenRecommendationKeys.push(getRecommendationKey(selected));
+
+  return selected;
+}
+
+function getRecommendationKey(item) {
+  return `${item.provider}:${item.type}:${item.title}`;
+}
+
+function getExpandedRecommendationPool() {
+  const screen = state.answers.screen;
+
+  if (screen === "movie" || screen === "series") {
+    return movieCatalog.filter((item) => item.type === screen);
+  }
+
+  return movieCatalog;
 }
 
 function chooseRecipe(foodKey) {
@@ -1494,6 +1476,9 @@ function renderWatchCard(result) {
           ${genreNames[item.genre] || item.genre} na ${providerNames[item.provider]}.
           ${item.why}
         </p>
+        <p class="watch-synopsis">
+          <strong>Sinopse:</strong> ${escapeHtml(item.synopsis || "Sinopse não disponível no momento.")}
+        </p>
         <button class="ghost-button" id="watched-button" type="button">
           Já assisti
         </button>
@@ -1591,6 +1576,7 @@ async function handleSubmit(event) {
   }
 
   state.recommendationIndex = 0;
+  state.seenRecommendationKeys = [];
   state.recipeIndex = Date.now();
   renderResult();
 }
@@ -1601,6 +1587,7 @@ function restartQuiz() {
   state.weather = null;
   state.isLoadingWeather = false;
   state.recommendationIndex = 0;
+  state.seenRecommendationKeys = [];
   state.recipeIndex = 0;
   state.currentResult = null;
   resultPanel.classList.add("hidden");

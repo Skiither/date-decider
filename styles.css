@@ -385,6 +385,10 @@ h2 {
   line-height: 1.45;
 }
 
+.watch-synopsis {
+  margin-top: 12px !important;
+}
+
 .watch-card {
   display: grid;
   grid-template-columns: 150px 1fr;
