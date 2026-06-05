@@ -344,7 +344,8 @@ h2 {
 }
 
 .plan-card,
-.watch-card {
+.watch-card,
+.recipe-card {
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -406,6 +407,46 @@ h2 {
   margin-top: 18px;
 }
 
+.recipe-card {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.55fr) minmax(0, 1fr);
+  gap: 18px;
+  margin: 24px 0;
+  padding: 22px;
+}
+
+.recipe-card h3 {
+  margin: 6px 0 10px;
+  font-size: 1.5rem;
+}
+
+.recipe-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.recipe-time {
+  display: inline-flex;
+  margin-top: 14px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(211, 79, 63, 0.1);
+  color: var(--accent-dark);
+  font-weight: 850;
+}
+
+.recipe-card ol {
+  margin: 0;
+  padding-left: 22px;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.recipe-card li + li {
+  margin-top: 8px;
+}
+
 .tips-list {
   display: grid;
   gap: 10px;
@@ -446,7 +487,8 @@ h2 {
 
   .card-grid,
   .plan-grid,
-  .watch-card {
+  .watch-card,
+  .recipe-card {
     grid-template-columns: 1fr;
   }
 

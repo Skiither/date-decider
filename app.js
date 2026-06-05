@@ -210,7 +210,256 @@ const movieCatalog = [
       "https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?auto=format&fit=crop&w=800&q=80",
     why: "crime, tensão e um plano mais elétrico.",
   },
+  {
+    title: "Attack on Titan",
+    type: "series",
+    provider: "netflix",
+    genre: "anime",
+    image:
+      "https://images.unsplash.com/photo-1618336753974-aae8e04506aa?auto=format&fit=crop&w=800&q=80",
+    why: "anime intenso, cheio de viradas e perfeito para quem gosta de teorias.",
+  },
+  {
+    title: "Your Name",
+    type: "movie",
+    provider: "prime",
+    genre: "anime",
+    image:
+      "https://images.unsplash.com/photo-1618336753974-aae8e04506aa?auto=format&fit=crop&w=800&q=80",
+    why: "anime romântico, bonito e com clima perfeito para date em casa.",
+  },
+  {
+    title: "Spy x Family",
+    type: "series",
+    provider: "disney",
+    genre: "anime",
+    image:
+      "https://images.unsplash.com/photo-1618336753974-aae8e04506aa?auto=format&fit=crop&w=800&q=80",
+    why: "leve, divertido e fácil de assistir sem pesar o clima.",
+  },
+  {
+    title: "Invocação do Mal",
+    type: "movie",
+    provider: "max",
+    genre: "terror",
+    image:
+      "https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=800&q=80",
+    why: "terror clássico, bom para assistir juntinho e comentar depois.",
+  },
+  {
+    title: "A Queda da Casa de Usher",
+    type: "series",
+    provider: "netflix",
+    genre: "terror",
+    image:
+      "https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=800&q=80",
+    why: "terror elegante, mistério e episódios que prendem.",
+  },
+  {
+    title: "Nope",
+    type: "movie",
+    provider: "prime",
+    genre: "terror",
+    image:
+      "https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=800&q=80",
+    why: "suspense diferente, visual marcante e conversa garantida depois.",
+  },
+  {
+    title: "Chef's Table",
+    type: "series",
+    provider: "netflix",
+    genre: "documentario",
+    image:
+      "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=800&q=80",
+    why: "documentário bonito, inspirador e ainda combina com comida.",
+  },
+  {
+    title: "Free Solo",
+    type: "movie",
+    provider: "disney",
+    genre: "documentario",
+    image:
+      "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=800&q=80",
+    why: "tenso, impressionante e ótimo para conversar depois.",
+  },
 ];
+
+const recipeCatalog = {
+  pizza: [
+    {
+      title: "Pizza de frigideira com queijo e tomate",
+      time: "25 minutos",
+      steps: [
+        "Misture farinha, água, azeite, fermento e uma pitada de sal até formar uma massa macia.",
+        "Abra a massa fina, doure na frigideira e vire.",
+        "Coloque molho, queijo, tomate e orégano, tampe e deixe o queijo derreter.",
+      ],
+    },
+    {
+      title: "Pizza de pão sírio",
+      time: "15 minutos",
+      steps: [
+        "Use pão sírio como base e espalhe molho de tomate.",
+        "Cubra com queijo, presunto, milho ou o que tiver em casa.",
+        "Leve ao forno até dourar e finalize com azeite.",
+      ],
+    },
+    {
+      title: "Pizza caseira de calabresa",
+      time: "40 minutos",
+      steps: [
+        "Monte a massa pronta ou caseira com molho de tomate.",
+        "Adicione muçarela, calabresa fatiada e cebola.",
+        "Asse até a borda ficar dourada e sirva em fatias para dividir.",
+      ],
+    },
+  ],
+  burger: [
+    {
+      title: "Hambúrguer smash caseiro",
+      time: "20 minutos",
+      steps: [
+        "Faça bolinhas de carne temperadas com sal e pimenta.",
+        "Amasse na frigideira bem quente até criar crosta.",
+        "Coloque queijo, pão tostado, molho e picles.",
+      ],
+    },
+    {
+      title: "Hambúrguer de frango crocante",
+      time: "35 minutos",
+      steps: [
+        "Tempere filé de frango, empane e doure até ficar crocante.",
+        "Monte no pão com queijo, alface e maionese temperada.",
+        "Sirva com batata ou chips para completar.",
+      ],
+    },
+    {
+      title: "Mini hambúrgueres para dividir",
+      time: "30 minutos",
+      steps: [
+        "Modele porções pequenas de carne ou frango.",
+        "Grelhe, coloque queijo e monte em mini pães.",
+        "Faça dois sabores de molho para deixar o date mais divertido.",
+      ],
+    },
+  ],
+  sushi: [
+    {
+      title: "Temaki simples em casa",
+      time: "30 minutos",
+      steps: [
+        "Prepare arroz japonês e tempere com vinagre, açúcar e sal.",
+        "Corte salmão, pepino ou kani em tiras.",
+        "Monte cones com alga, arroz, recheio e cream cheese.",
+      ],
+    },
+    {
+      title: "Poke de salmão ou frango",
+      time: "25 minutos",
+      steps: [
+        "Monte uma base de arroz, manga, pepino e cenoura.",
+        "Adicione salmão, frango ou tofu.",
+        "Finalize com shoyu, gergelim e cebolinha.",
+      ],
+    },
+    {
+      title: "Sushi bowl sem enrolar",
+      time: "20 minutos",
+      steps: [
+        "Coloque arroz japonês em uma tigela.",
+        "Adicione peixe, kani, pepino, manga e cream cheese.",
+        "Finalize com alga picada e molho tarê.",
+      ],
+    },
+  ],
+  snacks: [
+    {
+      title: "Tábua de lanches",
+      time: "15 minutos",
+      steps: [
+        "Separe queijos, frios, torradas, frutas e geleia.",
+        "Monte tudo em uma tábua bonita.",
+        "Sirva com uma bebida gelada e guardanapos à mão.",
+      ],
+    },
+    {
+      title: "Sanduíche quente caprichado",
+      time: "20 minutos",
+      steps: [
+        "Recheie pão com queijo, presunto, tomate e orégano.",
+        "Doure na frigideira com manteiga dos dois lados.",
+        "Corte ao meio e sirva com molho simples.",
+      ],
+    },
+    {
+      title: "Nachos de sofá",
+      time: "18 minutos",
+      steps: [
+        "Espalhe nachos em uma forma.",
+        "Cubra com queijo, carne moída ou frango desfiado.",
+        "Leve ao forno e finalize com sour cream ou guacamole.",
+      ],
+    },
+  ],
+  pasta: [
+    {
+      title: "Macarrão alho e óleo cremoso",
+      time: "20 minutos",
+      steps: [
+        "Cozinhe a massa e reserve um pouco da água.",
+        "Doure alho no azeite e misture a massa.",
+        "Finalize com parmesão, pimenta e um pouco da água do cozimento.",
+      ],
+    },
+    {
+      title: "Massa ao molho branco com bacon",
+      time: "30 minutos",
+      steps: [
+        "Doure bacon e reserve.",
+        "Faça molho branco com manteiga, farinha, leite e queijo.",
+        "Misture a massa, finalize com bacon e cheiro-verde.",
+      ],
+    },
+    {
+      title: "Espaguete ao molho de tomate rápido",
+      time: "25 minutos",
+      steps: [
+        "Refogue alho e cebola no azeite.",
+        "Adicione tomate pelado, sal, pimenta e manjericão.",
+        "Misture com a massa e finalize com queijo ralado.",
+      ],
+    },
+  ],
+  dessert: [
+    {
+      title: "Brownie de caneca para dois",
+      time: "10 minutos",
+      steps: [
+        "Misture chocolate em pó, farinha, açúcar, leite e óleo.",
+        "Leve ao micro-ondas até firmar.",
+        "Sirva com sorvete ou calda.",
+      ],
+    },
+    {
+      title: "Fondue rápido de chocolate",
+      time: "15 minutos",
+      steps: [
+        "Derreta chocolate com creme de leite.",
+        "Corte morango, banana e biscoitos.",
+        "Sirva tudo em uma tigela no centro da mesa.",
+      ],
+    },
+    {
+      title: "Taça de iogurte com frutas",
+      time: "10 minutos",
+      steps: [
+        "Intercale iogurte, frutas e granola em taças.",
+        "Finalize com mel ou geleia.",
+        "Deixe gelar alguns minutos antes de servir.",
+      ],
+    },
+  ],
+};
 
 const questionBank = {
   location: {
@@ -623,6 +872,7 @@ const state = {
   weather: null,
   isLoadingWeather: false,
   recommendationIndex: 0,
+  recipeIndex: 0,
   currentResult: null,
 };
 
@@ -919,6 +1169,12 @@ function chooseFromList(selected, extra, labels, priority) {
 }
 
 function chooseFood() {
+  const key = chooseFoodKey();
+
+  return foodNames[key] || key;
+}
+
+function chooseFoodKey() {
   const selected = state.answers.foods || [];
   const extra = state.answers.foodsExtra || "";
   const outsideActivity = state.answers.outsideActivity;
@@ -936,7 +1192,13 @@ function chooseFood() {
     priority = ["pasta", "pizza", "burger", "snacks", "dessert", "sushi"];
   }
 
-  return chooseFromList(selected, extra, foodNames, priority);
+  for (const item of priority) {
+    if (selected.includes(item)) {
+      return item;
+    }
+  }
+
+  return splitExtra(extra)[0] || selected[0] || "pizza";
 }
 
 function chooseGenreKey() {
@@ -982,24 +1244,27 @@ function getRecommendations() {
     matches = matches.filter((item) => item.type === screen);
   }
 
-  if (matches.length < 2 && (screen === "movie" || screen === "series")) {
+  if (matches.length < 4 && (screen === "movie" || screen === "series")) {
     matches = movieCatalog.filter(
       (item) => item.genre === genre && item.type === screen,
     );
   }
 
-  if (matches.length < 2) {
-    matches = movieCatalog.filter((item) => item.genre === genre);
+  if (matches.length < 4) {
+    matches = uniqueRecommendations([
+      ...matches,
+      ...movieCatalog.filter((item) => item.genre === genre),
+    ]);
   }
 
-  if (matches.length < 2 && (screen === "movie" || screen === "series")) {
+  if (matches.length < 4 && (screen === "movie" || screen === "series")) {
     matches = uniqueRecommendations([
       ...matches,
       ...movieCatalog.filter((item) => item.type === screen),
     ]);
   }
 
-  if (matches.length < 2) {
+  if (matches.length < 4) {
     matches = uniqueRecommendations([...matches, ...movieCatalog]);
   }
 
@@ -1033,6 +1298,13 @@ function chooseRecommendation() {
   const recommendations = getRecommendations();
   const index = state.recommendationIndex % recommendations.length;
   return recommendations[index];
+}
+
+function chooseRecipe(foodKey) {
+  const recipes = recipeCatalog[foodKey] || recipeCatalog.snacks;
+  const index = state.recipeIndex % recipes.length;
+
+  return recipes[index];
 }
 
 function getOptionImage(questionId, value) {
@@ -1122,8 +1394,10 @@ function buildOutsideResult() {
 }
 
 function buildHomeResult() {
-  const food = chooseFood();
+  const foodKey = chooseFoodKey();
+  const food = foodNames[foodKey] || foodKey;
   const recommendation = chooseRecommendation();
+  const recipe = chooseRecipe(foodKey);
   const money = state.answers.money;
   const action =
     money === "spend"
@@ -1134,15 +1408,17 @@ function buildHomeResult() {
 
   return {
     mode: "home",
-    title: "Date completo em casa",
-    description: `Plano fechado: vocês vão ${action}, arrumar a sala com luz baixa, deixar bebida pronta e assistir ${recommendation.title} na ${providerNames[recommendation.provider]}. O gênero decidido é ${genreNames[recommendation.genre] || recommendation.genre}; a ideia é um date confortável, com comida definida e título escolhido sem debate infinito.`,
+    title: "Plano de hoje: date em casa",
+    description: `Hoje o plano é ficar em casa, ${action}, preparar a sala com uma luz mais baixa, deixar bebida e guardanapos por perto e assistir ${recommendation.title} na ${providerNames[recommendation.provider]}. O gênero escolhido é ${genreNames[recommendation.genre] || recommendation.genre}, então a noite fica com comida definida, clima confortável e um título certo para dar play sem debate infinito.`,
     hero: recommendation.image,
     recommendation,
+    recipe,
+    food,
     cards: [
       {
         label: "Comida",
         title: food,
-        detail: `A escolha do app para hoje é ${food}.`,
+        detail: `Receita sugerida: ${recipe.title}.`,
         image: getOptionImage("foods", state.answers.foods?.[0]) || getOptionImage("foods", "pizza"),
       },
       {
@@ -1160,8 +1436,8 @@ function buildHomeResult() {
     ],
     tips: [
       state.weather?.summary || "Como é em casa, o clima não atrapalha o plano.",
-      "Deixem a comida resolvida antes de apertar play.",
-      "Se vocês já assistiram, toque no botão abaixo para trocar por outro do mesmo estilo.",
+      "Comecem pela receita, deixem a comida pronta e só depois deem play.",
+      "Se vocês já assistiram ao título, toque em “Já assisti” para trocar por outro.",
     ],
   };
 }
@@ -1219,9 +1495,29 @@ function renderWatchCard(result) {
           ${item.why}
         </p>
         <button class="ghost-button" id="watched-button" type="button">
-          Já assisti a esse filme ou série
+          Já assisti
         </button>
       </div>
+    </article>
+  `;
+}
+
+function renderRecipeCard(result) {
+  if (result.mode !== "home" || !result.recipe) {
+    return "";
+  }
+
+  return `
+    <article class="recipe-card">
+      <div>
+        <p class="eyebrow">Comida escolhida</p>
+        <h3>${escapeHtml(result.food)}</h3>
+        <p>Receita sugerida: <strong>${escapeHtml(result.recipe.title)}</strong>.</p>
+        <span class="recipe-time">${escapeHtml(result.recipe.time)}</span>
+      </div>
+      <ol>
+        ${result.recipe.steps.map((step) => `<li>${escapeHtml(step)}</li>`).join("")}
+      </ol>
     </article>
   `;
 }
@@ -1242,6 +1538,7 @@ function renderResult() {
     <p id="result-description">${escapeHtml(result.description)}</p>
     ${renderResultCards(result.cards)}
     ${renderWatchCard(result)}
+    ${renderRecipeCard(result)}
     <ul id="result-tips" class="tips-list">
       ${result.tips.map((tip) => `<li>${escapeHtml(tip)}</li>`).join("")}
     </ul>
@@ -1294,6 +1591,7 @@ async function handleSubmit(event) {
   }
 
   state.recommendationIndex = 0;
+  state.recipeIndex = Date.now();
   renderResult();
 }
 
@@ -1303,6 +1601,7 @@ function restartQuiz() {
   state.weather = null;
   state.isLoadingWeather = false;
   state.recommendationIndex = 0;
+  state.recipeIndex = 0;
   state.currentResult = null;
   resultPanel.classList.add("hidden");
   document.querySelector(".quiz-panel").classList.remove("hidden");
