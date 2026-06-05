@@ -35,11 +35,11 @@ input {
 }
 
 .app-shell {
-  width: min(1120px, calc(100% - 32px));
+  width: min(1280px, calc(100% - 32px));
   min-height: 100vh;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(280px, 0.9fr) minmax(320px, 1.1fr);
+  grid-template-columns: minmax(280px, 0.62fr) minmax(520px, 1.38fr);
   gap: 20px;
   align-items: center;
   padding: 36px 0;
@@ -147,16 +147,19 @@ h2 {
   gap: 12px;
 }
 
-.compact-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+.card-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .option-card {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  min-height: 82px;
-  padding: 16px 18px;
+  position: relative;
+  display: grid;
+  grid-template-rows: 116px 1fr;
+  align-items: stretch;
+  gap: 0;
+  min-height: 240px;
+  overflow: hidden;
+  padding: 0;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: #fffdf8;
@@ -184,19 +187,46 @@ h2 {
 }
 
 .illustrated-option {
-  gap: 14px;
+  gap: 0;
+}
+
+.option-image {
+  position: relative;
+  display: grid;
+  min-height: 116px;
+  place-items: center;
+  background-position: center;
+  background-size: cover;
+}
+
+.option-image::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(180deg, rgba(31, 37, 35, 0.08), rgba(31, 37, 35, 0.42));
 }
 
 .option-icon {
+  position: relative;
+  z-index: 1;
   display: grid;
-  flex: 0 0 48px;
-  width: 48px;
-  height: 48px;
+  min-width: 46px;
+  height: 46px;
+  padding: 0 10px;
   place-items: center;
   border-radius: 8px;
-  background: rgba(196, 147, 47, 0.16);
-  border: 1px solid rgba(196, 147, 47, 0.3);
-  font-size: 1.65rem;
+  background: rgba(255, 250, 241, 0.88);
+  border: 1px solid rgba(255, 250, 241, 0.72);
+  color: var(--ink);
+  font-size: 1.35rem;
+  font-weight: 900;
+}
+
+.option-copy {
+  display: grid;
+  align-content: start;
+  min-height: 124px;
+  padding: 14px;
 }
 
 .option-title {
@@ -208,6 +238,7 @@ h2 {
   display: block;
   margin-top: 4px;
   color: var(--muted);
+  font-size: 0.92rem;
   line-height: 1.35;
 }
 
@@ -313,6 +344,85 @@ h2 {
   grid-column: 2;
 }
 
+.result-hero {
+  width: 100%;
+  min-height: 220px;
+  margin: 0 0 22px;
+  border-radius: 8px;
+  background-position: center;
+  background-size: cover;
+  border: 1px solid var(--line);
+}
+
+.plan-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.plan-card,
+.watch-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fffdf8;
+}
+
+.plan-card-image {
+  min-height: 132px;
+  background-position: center;
+  background-size: cover;
+}
+
+.plan-card-copy {
+  padding: 14px;
+}
+
+.plan-card-copy span {
+  color: var(--mint);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.plan-card-copy h3,
+.watch-card h3 {
+  margin: 6px 0;
+  font-size: 1.1rem;
+  line-height: 1.18;
+}
+
+.plan-card-copy p,
+.watch-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.watch-card {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 0;
+  margin: 24px 0;
+}
+
+.watch-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 230px;
+  object-fit: cover;
+}
+
+.watch-card > div {
+  padding: 20px;
+}
+
+.watch-card .ghost-button {
+  margin-top: 18px;
+}
+
 .tips-list {
   display: grid;
   gap: 10px;
@@ -348,8 +458,29 @@ h2 {
     max-width: none;
   }
 
-  .compact-grid {
+  .card-grid,
+  .plan-grid,
+  .watch-card {
     grid-template-columns: 1fr;
+  }
+
+  .watch-card img {
+    max-height: 320px;
+  }
+
+  .result-panel {
+    grid-column: auto;
+  }
+}
+
+@media (min-width: 781px) and (max-width: 1100px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .result-panel {
