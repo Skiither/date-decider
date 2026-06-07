@@ -31,33 +31,54 @@
             <p class="eyebrow">Modo roleta</p>
             <h2>Não quer decidir?</h2>
             <p>
-              Coloque a cidade se quiser, clique em girar, e o app escolhe o
-              date completo para vocês.
+              Primeiro coloque a cidade. Depois a roleta aparece e vocês giram
+              uma rodada por decisão até o date ficar fechado.
             </p>
           </div>
-          <div class="roulette-layout">
-            <div class="roulette-wheel" id="roulette-wheel" aria-hidden="true">
-              <span>Girar</span>
+          <div class="roulette-setup" id="roulette-setup">
+            <label class="text-field roulette-location">
+              <span>Cidade</span>
+              <input
+                id="roulette-location-input"
+                type="text"
+                list="roulette-location-suggestions"
+                placeholder="Ex: São Paulo, Campinas, Recife..."
+                autocomplete="address-level2"
+              />
+              <datalist id="roulette-location-suggestions"></datalist>
+            </label>
+            <button
+              class="primary-button roulette-start-button"
+              id="roulette-start-button"
+              type="button"
+            >
+              Começar roleta
+            </button>
+            <p class="form-error" id="roulette-error"></p>
+          </div>
+          <div class="roulette-game hidden" id="roulette-game">
+            <div class="roulette-status">
+              <span id="roulette-round-label">Rodada 1</span>
+              <strong id="roulette-question-title">O que vai cair?</strong>
+              <p id="roulette-result-text">Gire para revelar a primeira escolha.</p>
             </div>
-            <div class="roulette-controls">
-              <label class="text-field roulette-location">
-                <span>Cidade opcional</span>
-                <input
-                  id="roulette-location-input"
-                  type="text"
-                  list="roulette-location-suggestions"
-                  placeholder="Ex: São Paulo, Campinas, Recife..."
-                  autocomplete="address-level2"
-                />
-                <datalist id="roulette-location-suggestions"></datalist>
-              </label>
-              <button
-                class="primary-button roulette-button"
-                id="roulette-button"
-                type="button"
-              >
-                Girar roleta
-              </button>
+            <div class="roulette-layout">
+              <div class="roulette-stage">
+                <div class="roulette-pointer" aria-hidden="true"></div>
+                <div class="roulette-wheel" id="roulette-wheel" aria-hidden="true">
+                  <span>Girar</span>
+                </div>
+              </div>
+              <div class="roulette-controls">
+                <button
+                  class="primary-button roulette-button"
+                  id="roulette-button"
+                  type="button"
+                >
+                  Girar rodada
+                </button>
+                <div class="roulette-history" id="roulette-history"></div>
+              </div>
             </div>
           </div>
         </div>

@@ -991,13 +991,28 @@ const resultTitle = document.querySelector("#result-title");
 const resultDescription = document.querySelector("#result-description");
 const resultTips = document.querySelector("#result-tips");
 const restartButton = document.querySelector("#restart-button");
+const rouletteSetup = document.querySelector("#roulette-setup");
+const rouletteGame = document.querySelector("#roulette-game");
+const rouletteStartButton = document.querySelector("#roulette-start-button");
 const rouletteButton = document.querySelector("#roulette-button");
 const rouletteWheel = document.querySelector("#roulette-wheel");
+const rouletteRoundLabel = document.querySelector("#roulette-round-label");
+const rouletteQuestionTitle = document.querySelector("#roulette-question-title");
+const rouletteResultText = document.querySelector("#roulette-result-text");
+const rouletteHistory = document.querySelector("#roulette-history");
+const rouletteError = document.querySelector("#roulette-error");
 const rouletteLocationInput = document.querySelector("#roulette-location-input");
 const rouletteLocationSuggestions = document.querySelector(
   "#roulette-location-suggestions",
 );
 let rouletteDebounce = null;
+
+const rouletteState = {
+  round: 0,
+  history: [],
+  rotation: 0,
+  isSpinning: false,
+};
 
 function getQuestions() {
   const place = state.answers.place;
@@ -1247,16 +1262,6 @@ function randomFrom(items) {
   return items[Math.floor(Math.random() * items.length)];
 }
 
-function randomMany(items, min = 1, max = 2) {
-  const shuffled = [...items].sort(() => Math.random() - 0.5);
-  const count = Math.min(
-    items.length,
-    Math.max(min, Math.floor(Math.random() * (max - min + 1)) + min),
-  );
-
-  return shuffled.slice(0, count);
-}
-
 function resetDecisionState() {
   state.step = 0;
   state.answers = {};
@@ -1268,54 +1273,209 @@ function resetDecisionState() {
   state.currentResult = null;
 }
 
-async function spinRoulette() {
-  if (!rouletteButton) {
+function resetRouletteState() {
+  rouletteState.round = 0;
+  rouletteState.history = [];
+  rouletteState.rotation = 0;
+  rouletteState.isSpinning = false;
+}
+
+function getRouletteSequence() {
+  if (!state.answers.place) {
+    return ["place"];
+  }
+
+  if (state.answers.place === "outside") {
+    return ["place", "outsideActivity", "time", "money", "foods", "outsideFinish"];
+  }
+
+  return ["place", "money", "foods", "providers", "screen", "genres"];
+}
+
+function getCurrentRouletteQuestionId() {
+  return getRouletteSequence()[rouletteState.round];
+}
+
+function getRouletteOptions(questionId) {
+  const options = questionBank[questionId].options;
+
+  if (questionId === "place") {
+    return options.filter((option) => option.value !== "flex");
+  }
+
+  return options;
+}
+
+function getRouletteTotalRounds() {
+  return 6;
+}
+
+function buildRouletteBackground(optionCount) {
+  const colors = ["var(--accent)", "var(--gold)", "var(--mint)", "#ef8b55"];
+  const slice = 360 / optionCount;
+
+  return `conic-gradient(${Array.from({ length: optionCount }, (_, index) => {
+    const start = index * slice;
+    const end = (index + 1) * slice;
+    return `${colors[index % colors.length]} ${start}deg ${end}deg`;
+  }).join(", ")})`;
+}
+
+function renderRouletteWheel(options) {
+  if (!rouletteWheel) {
     return;
   }
 
-  const city = rouletteLocationInput?.value.trim() || "sua cidade";
+  rouletteWheel.style.transition = "none";
+  rouletteWheel.style.transform = "rotate(0deg)";
+  rouletteWheel.style.background = buildRouletteBackground(options.length);
+  rouletteWheel.innerHTML = `
+    ${options
+      .map((option, index) => {
+        const angle = (360 / options.length) * index + 180 / options.length;
 
-  rouletteButton.disabled = true;
-  rouletteButton.textContent = "Girando...";
-  rouletteWheel?.classList.add("spinning");
+        return `
+          <span
+            class="roulette-segment-label"
+            style="--angle: ${angle}deg"
+          >
+            ${escapeHtml(option.title)}
+          </span>
+        `;
+      })
+      .join("")}
+    <span class="roulette-center">Girar</span>
+  `;
+
+  requestAnimationFrame(() => {
+    rouletteWheel.style.transition = "";
+  });
+}
+
+function renderRouletteHistory() {
+  if (!rouletteHistory) {
+    return;
+  }
+
+  rouletteHistory.innerHTML = rouletteState.history
+    .map((item) => `<span>${escapeHtml(item.label)}: ${escapeHtml(item.value)}</span>`)
+    .join("");
+}
+
+function renderRouletteRound() {
+  const questionId = getCurrentRouletteQuestionId();
+  const question = questionBank[questionId];
+  const options = getRouletteOptions(questionId);
+  const total = getRouletteTotalRounds();
+
+  if (!question || !options.length) {
+    renderResult();
+    return;
+  }
+
+  stepLabel.textContent = `Roleta ${rouletteState.round + 1} de ${total}`;
+  progressBar.style.width = `${((rouletteState.round + 1) / total) * 100}%`;
+  rouletteRoundLabel.textContent = `Rodada ${rouletteState.round + 1} de ${total}`;
+  rouletteQuestionTitle.textContent = question.title;
+  rouletteResultText.textContent = "Gire a roleta para revelar essa escolha.";
+  rouletteButton.disabled = false;
+  rouletteButton.textContent = "Girar rodada";
+  renderRouletteWheel(options);
+  renderRouletteHistory();
+}
+
+function applyRouletteChoice(questionId, option) {
+  if (questionBank[questionId].type === "multi") {
+    state.answers[questionId] = [option.value];
+    state.answers[`${questionId}Extra`] = "";
+  } else {
+    state.answers[questionId] = option.value;
+  }
+
+  rouletteState.history.push({
+    label: questionBank[questionId].kicker || "Escolha",
+    value: option.title,
+  });
+}
+
+async function startRouletteExperience() {
+  if (!rouletteStartButton) {
+    return;
+  }
+
+  const city = rouletteLocationInput?.value.trim();
+
+  if (!city) {
+    rouletteError.textContent = "Coloque a cidade antes de começar a roleta.";
+    rouletteLocationInput?.focus();
+    return;
+  }
+
+  rouletteError.textContent = "";
+  rouletteStartButton.disabled = true;
+  rouletteStartButton.textContent = "Preparando...";
   resetDecisionState();
+  resetRouletteState();
   state.answers.location = city;
 
-  if (city !== "sua cidade") {
-    try {
-      state.weather = await fetchWeather(city);
-    } catch {
-      state.weather = null;
-    }
+  try {
+    state.weather = await fetchWeather(city);
+  } catch {
+    state.weather = null;
+  } finally {
+    rouletteStartButton.disabled = false;
+    rouletteStartButton.textContent = "Começar roleta";
   }
 
-  const weatherSuggestsHome = state.weather && !state.weather.isSunny;
-  const place = weatherSuggestsHome
-    ? randomFrom(["home", "home", "outside"])
-    : randomFrom(["home", "outside"]);
+  rouletteSetup.classList.add("hidden");
+  rouletteGame.classList.remove("hidden");
+  renderRouletteRound();
+}
 
-  state.answers.place = place;
-  state.answers.money = randomFrom(getQuestionValues("money"));
-  state.answers.foods = [randomFrom(getQuestionValues("foods"))];
-  state.answers.foodsExtra = "";
-
-  if (place === "outside") {
-    state.answers.outsideActivity = randomFrom(getQuestionValues("outsideActivity"));
-    state.answers.time = randomFrom(getQuestionValues("time"));
-    state.answers.outsideFinish = randomFrom(getQuestionValues("outsideFinish"));
-  } else {
-    state.answers.providers = randomMany(getQuestionValues("providers"), 1, 2);
-    state.answers.screen = randomFrom(getQuestionValues("screen"));
-    state.answers.genres = [randomFrom(getQuestionValues("genres"))];
-    state.answers.genresExtra = "";
+function spinRouletteRound() {
+  if (rouletteState.isSpinning) {
+    return;
   }
+
+  const questionId = getCurrentRouletteQuestionId();
+  const options = getRouletteOptions(questionId);
+  const selectedIndex = Math.floor(Math.random() * options.length);
+  const selected = options[selectedIndex];
+  const slice = 360 / options.length;
+  const segmentCenter = selectedIndex * slice + slice / 2;
+  const pointerAngle = 45;
+  const extraTurns = 1440 + Math.floor(Math.random() * 3) * 360;
+  const targetRotation = extraTurns + pointerAngle - segmentCenter;
+
+  rouletteState.isSpinning = true;
+  rouletteButton.disabled = true;
+  rouletteButton.textContent = "Girando...";
+  rouletteResultText.textContent = "A roleta está decidindo...";
+  rouletteWheel.style.transform = `rotate(${targetRotation}deg)`;
 
   window.setTimeout(() => {
-    rouletteWheel?.classList.remove("spinning");
+    applyRouletteChoice(questionId, selected);
+    rouletteResultText.textContent = `Caiu: ${selected.title}.`;
+    rouletteState.isSpinning = false;
     rouletteButton.disabled = false;
-    rouletteButton.textContent = "Girar roleta";
-    renderResult();
-  }, 900);
+    rouletteButton.textContent = "Próxima rodada";
+    renderRouletteHistory();
+
+    window.setTimeout(() => {
+      const nextSequence = getRouletteSequence();
+
+      if (rouletteState.round >= nextSequence.length - 1) {
+        state.recommendationIndex = 0;
+        state.seenRecommendationKeys = [];
+        state.recipeIndex = Date.now();
+        renderResult();
+        return;
+      }
+
+      rouletteState.round += 1;
+      renderRouletteRound();
+    }, 850);
+  }, 1150);
 }
 
 async function fetchWeather(city) {
@@ -1923,13 +2083,23 @@ function restartQuiz() {
   state.seenRecommendationKeys = [];
   state.recipeIndex = 0;
   state.currentResult = null;
+  resetRouletteState();
+  rouletteSetup?.classList.remove("hidden");
+  rouletteGame?.classList.add("hidden");
+  if (rouletteError) {
+    rouletteError.textContent = "";
+  }
+  if (rouletteLocationInput) {
+    rouletteLocationInput.value = "";
+  }
   resultPanel.classList.add("hidden");
   document.querySelector(".quiz-panel").classList.remove("hidden");
   renderQuestion();
 }
 
 form.addEventListener("submit", handleSubmit);
-rouletteButton?.addEventListener("click", spinRoulette);
+rouletteStartButton?.addEventListener("click", startRouletteExperience);
+rouletteButton?.addEventListener("click", spinRouletteRound);
 
 backButton.addEventListener("click", () => {
   if (state.step > 0) {
