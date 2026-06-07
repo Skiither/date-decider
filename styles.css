@@ -66,6 +66,39 @@ input {
   padding: 30px 0 0;
 }
 
+.mode-choice {
+  display: grid;
+  gap: 20px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 253, 248, 0.86);
+  text-align: center;
+}
+
+.mode-choice h2 {
+  font-size: clamp(1.9rem, 4vw, 3.2rem);
+}
+
+.mode-choice p:last-child {
+  max-width: 620px;
+  margin: 14px auto 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.mode-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.mode-actions .primary-button,
+.mode-actions .ghost-button {
+  min-width: 220px;
+}
+
 .roulette-panel {
   display: grid;
   gap: 22px;
@@ -763,7 +796,9 @@ h2 {
   }
 
   .roulette-start-button,
-  .roulette-button {
+  .roulette-button,
+  .mode-actions .primary-button,
+  .mode-actions .ghost-button {
     width: 100%;
   }
 

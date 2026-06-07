@@ -26,7 +26,26 @@
       </section>
 
       <section class="quiz-panel" aria-live="polite">
-        <div class="roulette-panel" aria-label="Modo roleta">
+        <div class="mode-choice" id="mode-choice" aria-label="Escolha o modo">
+          <div>
+            <p class="eyebrow">Escolha o caminho</p>
+            <h2>Como vocês querem decidir?</h2>
+            <p>
+              Dá para deixar tudo com a roleta ou responder algumas opções e
+              deixar o app fechar o plano.
+            </p>
+          </div>
+          <div class="mode-actions">
+            <button class="primary-button" id="choose-roulette-button" type="button">
+              Não quero decidir nada
+            </button>
+            <button class="ghost-button" id="choose-manual-button" type="button">
+              Me dê algumas opções
+            </button>
+          </div>
+        </div>
+
+        <div class="roulette-panel hidden" id="roulette-panel" aria-label="Modo roleta">
           <div class="roulette-copy">
             <p class="eyebrow">Modo roleta</p>
             <h2>Não quero decidir nada</h2>
@@ -52,7 +71,7 @@
               id="roulette-start-button"
               type="button"
             >
-              Não quero decidir nada
+              Começar jogo
             </button>
             <p class="form-error" id="roulette-error"></p>
           </div>
@@ -82,8 +101,10 @@
             </div>
           </div>
         </div>
-        <div class="manual-divider"><span>ou me dê algumas opções</span></div>
-        <form id="date-form">
+        <div class="manual-divider hidden" id="manual-divider">
+          <span>Algumas opções</span>
+        </div>
+        <form id="date-form" class="hidden">
           <div id="question-area"></div>
           <div class="actions">
             <button class="ghost-button" id="back-button" type="button">

@@ -1309,6 +1309,11 @@ const resultTitle = document.querySelector("#result-title");
 const resultDescription = document.querySelector("#result-description");
 const resultTips = document.querySelector("#result-tips");
 const restartButton = document.querySelector("#restart-button");
+const modeChoice = document.querySelector("#mode-choice");
+const chooseRouletteButton = document.querySelector("#choose-roulette-button");
+const chooseManualButton = document.querySelector("#choose-manual-button");
+const roulettePanel = document.querySelector("#roulette-panel");
+const manualDivider = document.querySelector("#manual-divider");
 const rouletteSetup = document.querySelector("#roulette-setup");
 const rouletteGame = document.querySelector("#roulette-game");
 const rouletteStartButton = document.querySelector("#roulette-start-button");
@@ -1589,6 +1594,32 @@ function resetDecisionState() {
   state.seenRecommendationKeys = [];
   state.recipeIndex = Date.now();
   state.currentResult = null;
+}
+
+function showModeChoice() {
+  modeChoice?.classList.remove("hidden");
+  roulettePanel?.classList.add("hidden");
+  manualDivider?.classList.add("hidden");
+  form?.classList.add("hidden");
+  stepLabel.textContent = "Escolha o modo";
+  progressBar.style.width = "0";
+}
+
+function showRouletteMode() {
+  modeChoice?.classList.add("hidden");
+  roulettePanel?.classList.remove("hidden");
+  manualDivider?.classList.add("hidden");
+  form?.classList.add("hidden");
+  stepLabel.textContent = "Modo roleta";
+  progressBar.style.width = "0";
+}
+
+function showManualMode() {
+  modeChoice?.classList.add("hidden");
+  roulettePanel?.classList.add("hidden");
+  manualDivider?.classList.remove("hidden");
+  form?.classList.remove("hidden");
+  renderQuestion();
 }
 
 function resetRouletteState() {
@@ -2117,9 +2148,9 @@ function getGameOption(phaseId, value) {
     ? gameOptions[phaseId]
     : Object.values(gameOptions[phaseId] || {}).flat();
 
-  return options.find((option) => option.value === value) || {
+  return options.find((option) => option.value === value) || randomFrom(options) || {
     value,
-    title: value || "Escolha surpresa",
+    title: "Opção definida pelo app",
     detail: "O app escolheu essa parte do plano.",
     image: fallbackImage,
   };
@@ -2162,7 +2193,7 @@ function buildGameResult() {
   return {
     mode: "game",
     title: "Seu Plano de Date",
-    description: `Date fechado em ${state.answers.location}: ${time.title.toLowerCase()}, começando com ${starter.title.toLowerCase()}, depois ${main.title.toLowerCase()}, sobremesa de ${dessert.title.toLowerCase()} e final com ${finalActivity.title.toLowerCase()}.${movieText}`,
+    description: `Date fechado em ${state.answers.location}: ${time.title.toLowerCase()}, começando com ${starter.title.toLowerCase()}, depois ${main.title.toLowerCase()}, ${dessert.title.toLowerCase()} de sobremesa e final com ${finalActivity.title.toLowerCase()}.${movieText}`,
     hero: finalActivity.image || main.image,
     recommendation,
     cards: [
@@ -2509,10 +2540,12 @@ function restartQuiz() {
   }
   resultPanel.classList.add("hidden");
   document.querySelector(".quiz-panel").classList.remove("hidden");
-  renderQuestion();
+  showModeChoice();
 }
 
 form.addEventListener("submit", handleSubmit);
+chooseRouletteButton?.addEventListener("click", showRouletteMode);
+chooseManualButton?.addEventListener("click", showManualMode);
 rouletteStartButton?.addEventListener("click", startRouletteExperience);
 rouletteButton?.addEventListener("click", spinRouletteRound);
 
@@ -2527,3 +2560,4 @@ restartButton.addEventListener("click", restartQuiz);
 
 setupRouletteAutocomplete();
 renderQuestion();
+showModeChoice();
