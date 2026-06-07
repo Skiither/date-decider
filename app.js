@@ -964,7 +964,325 @@ const genreNames = {
   terror: "terror",
   documentario: "documentario",
   anime: "anime",
+  light_drama: "drama leve",
+  feel_good: "feel-good",
 };
+
+const gamePhaseLabels = {
+  gameTime: "Horário",
+  gameStarter: "Entrada",
+  gameMain: "Prato principal",
+  gameDessert: "Sobremesa",
+  gameFinalActivity: "Atividade final",
+};
+
+const gamePhaseTitles = {
+  gameTime: "Quando vai ser o date?",
+  gameStarter: "Qual vai ser a entrada?",
+  gameMain: "Qual vai ser o prato principal?",
+  gameDessert: "Qual sobremesa fecha melhor?",
+  gameFinalActivity: "Como vocês terminam o date?",
+};
+
+const gameOptions = {
+  gameTime: [
+    {
+      value: "morning",
+      title: "Manhã",
+      detail: "Date leve, café, padaria e brunch.",
+      image:
+        "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      value: "afternoon",
+      title: "Tarde",
+      detail: "Snack, sorvete, smoothie e passeio tranquilo.",
+      image:
+        "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      value: "night",
+      title: "Noite",
+      detail: "Jantar, tapas, drink leve e clima mais romântico.",
+      image:
+        "https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=800&q=80",
+    },
+  ],
+  gameStarter: {
+    morning: [
+      {
+        value: "cafe_pao_queijo",
+        title: "Café e pão de queijo",
+        detail: "Padaria boa, mesa pequena e conversa sem pressa.",
+        image:
+          "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80",
+      },
+      {
+        value: "brunch_leve",
+        title: "Brunch leve",
+        detail: "Frutas, torradas, ovos e algo gostoso para dividir.",
+        image:
+          "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=800&q=80",
+      },
+      {
+        value: "padaria",
+        title: "Padaria caprichada",
+        detail: "Café, suco e vitrine de doces para escolher na hora.",
+        image:
+          "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80",
+      },
+    ],
+    afternoon: [
+      {
+        value: "snack",
+        title: "Snack crocante",
+        detail: "Algo pequeno para abrir o apetite sem pesar.",
+        image:
+          "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=80",
+      },
+      {
+        value: "smoothie",
+        title: "Smoothie",
+        detail: "Bebida gelada, leve e com cara de tarde boa.",
+        image:
+          "https://images.unsplash.com/photo-1502741224143-90386d7f8c82?auto=format&fit=crop&w=800&q=80",
+      },
+      {
+        value: "gelato_start",
+        title: "Sorvete antes",
+        detail: "Começar pelo doce também conta como personalidade.",
+        image:
+          "https://images.unsplash.com/photo-1567206563064-6f60f40a2b57?auto=format&fit=crop&w=800&q=80",
+      },
+    ],
+    night: [
+      {
+        value: "tapas",
+        title: "Tapas",
+        detail: "Porções pequenas para beliscar e conversar.",
+        image:
+          "https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=800&q=80",
+      },
+      {
+        value: "drink_leve",
+        title: "Drink leve",
+        detail: "Um brinde simples antes da comida principal.",
+        image:
+          "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80",
+      },
+      {
+        value: "bruschetta",
+        title: "Bruschetta",
+        detail: "Entrada italiana, fácil de dividir e sem complicar.",
+        image:
+          "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?auto=format&fit=crop&w=800&q=80",
+      },
+    ],
+  },
+  gameMain: {
+    morning: [
+      {
+        value: "brunch_reforcado",
+        title: "Brunch reforçado",
+        detail: "Ovos, pão, frutas, café e uma mesa bonita.",
+        image:
+          "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80",
+      },
+      {
+        value: "panquecas",
+        title: "Panquecas",
+        detail: "Doce ou salgada, com cara de date de manhã.",
+        image:
+          "https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&w=800&q=80",
+      },
+      {
+        value: "tapioca",
+        title: "Tapioca recheada",
+        detail: "Leve, brasileira e fácil de adaptar ao gosto dos dois.",
+        image:
+          "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80",
+      },
+    ],
+    afternoon: [
+      {
+        value: "street_food",
+        title: "Street food",
+        detail: "Comida rápida, gostosa e com clima de passeio.",
+        image:
+          "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80",
+      },
+      {
+        value: "almoco_leve",
+        title: "Almoço leve",
+        detail: "Prato bonito, salada, massa curta ou bowl.",
+        image:
+          "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80",
+      },
+      {
+        value: "lanche_artesanal",
+        title: "Lanche artesanal",
+        detail: "Sanduíche bom, batata e bebida gelada.",
+        image:
+          "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80",
+      },
+    ],
+    night: [
+      {
+        value: "italiano",
+        title: "Jantar italiano",
+        detail: "Massa, vinho ou suco especial e clima romântico.",
+        image:
+          "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80",
+      },
+      {
+        value: "sushi_date",
+        title: "Sushi",
+        detail: "Especial, leve e ótimo para pedir várias peças.",
+        image:
+          "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=800&q=80",
+      },
+      {
+        value: "bistro",
+        title: "Bistrô",
+        detail: "Lugar acolhedor, prato bonito e conversa calma.",
+        image:
+          "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=80",
+      },
+    ],
+  },
+  gameDessert: [
+    {
+      value: "gelado",
+      title: "Sorvete",
+      detail: "Clássico, leve e funciona em qualquer horário.",
+      image:
+        "https://images.unsplash.com/photo-1567206563064-6f60f40a2b57?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      value: "chocolate",
+      title: "Chocolate",
+      detail: "Brownie, brigadeiro ou algo bem confortável.",
+      image:
+        "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      value: "cafe_doce",
+      title: "Café doce",
+      detail: "Cappuccino, mocha ou café com sobremesa pequena.",
+      image:
+        "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      value: "compartilhar",
+      title: "Sobremesa para dividir",
+      detail: "Uma sobremesa só, duas colheres e zero discussão.",
+      image:
+        "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=800&q=80",
+    },
+  ],
+  gameFinalActivity: {
+    morning: [
+      {
+        value: "walk",
+        title: "Caminhada leve",
+        detail: "Dar uma volta curta depois do brunch.",
+        image:
+          "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80",
+      },
+      {
+        value: "park",
+        title: "Passeio no parque",
+        detail: "Sol, conversa e um ritmo sem pressa.",
+        image:
+          "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80",
+      },
+      {
+        value: "home_chill",
+        title: "Chill em casa",
+        detail: "Voltar, descansar e assistir algo leve.",
+        image:
+          "https://images.unsplash.com/photo-1523755231516-e43fd2e8dca5?auto=format&fit=crop&w=800&q=80",
+      },
+    ],
+    afternoon: [
+      {
+        value: "movie",
+        title: "Filme",
+        detail: "Fechar a tarde com um filme leve.",
+        image:
+          "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80",
+      },
+      {
+        value: "walk",
+        title: "Passeio",
+        detail: "Andar por um lugar bonito e tirar umas fotos.",
+        image:
+          "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80",
+      },
+      {
+        value: "home_chill",
+        title: "Atividade chill em casa",
+        detail: "Sofá, bebida gelada e algo para assistir.",
+        image:
+          "https://images.unsplash.com/photo-1523755231516-e43fd2e8dca5?auto=format&fit=crop&w=800&q=80",
+      },
+    ],
+    night: [
+      {
+        value: "movie",
+        title: "Filme",
+        detail: "Terminar com filme e clima de sofá.",
+        image:
+          "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80",
+      },
+      {
+        value: "bar",
+        title: "Barzinho",
+        detail: "Uma parada final com drink leve e conversa.",
+        image:
+          "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=80",
+      },
+      {
+        value: "night_walk",
+        title: "Caminhada curta",
+        detail: "Andar um pouco antes de encerrar.",
+        image:
+          "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=800&q=80",
+      },
+    ],
+  },
+};
+
+const dateMovieFallback = [
+  "Questão de Tempo", "10 Coisas que Eu Odeio em Você", "Como Se Fosse a Primeira Vez",
+  "Simplesmente Amor", "Antes do Amanhecer", "Antes do Pôr do Sol", "Um Lugar Chamado Notting Hill",
+  "O Amor Não Tira Férias", "Crazy Rich Asians", "Palm Springs", "Meia-Noite em Paris",
+  "A Proposta", "De Repente 30", "Mensagem para Você", "Sintonia de Amor", "Hitch",
+  "Amor a Toda Prova", "Escrito nas Estrelas", "Juntos pelo Acaso", "Para Todos os Garotos que Já Amei",
+  "A Barraca do Beijo", "Amor com Data Marcada", "Set It Up", "Alguém Especial",
+  "O Plano Imperfeito", "Como Perder um Homem em 10 Dias", "Legalmente Loira", "Encantada",
+  "Orgulho e Preconceito", "Razão e Sensibilidade", "Adoráveis Mulheres", "Brooklyn",
+  "La La Land", "Questão de Honra", "Chef", "A Vida Secreta de Walter Mitty",
+  "Julie & Julia", "O Fabuloso Destino de Amélie Poulain", "Sing Street", "Begin Again",
+  "Escola de Rock", "Free Guy", "O Terminal", "Paddington 2", "A Princesa Prometida",
+  "Mamma Mia!", "Yesterday", "O Diabo Veste Prada", "De Encontro com o Amor",
+  "Encontro Explosivo", "A Mentira", "O Lado Bom da Vida", "500 Dias com Ela",
+  "Her", "Elemental", "Ratatouille", "Up", "Soul", "Luca", "Red, White & Royal Blue",
+  "Rye Lane", "Your Name", "O Serviço de Entregas da Kiki", "Sussurros do Coração",
+  "A Viagem de Chihiro", "Meu Amigo Totoro", "Modern Love", "Only Murders in the Building",
+  "The Good Place", "Brooklyn Nine-Nine", "Ted Lasso", "Abbott Elementary",
+  "Parks and Recreation", "Friends", "How I Met Your Mother", "New Girl",
+].map((title, index) => ({
+  title,
+  type: index % 5 === 0 ? "series" : "movie",
+  provider: providerPriority[index % providerPriority.length],
+  genre: ["romance", "comedia", "feel_good", "light_drama"][index % 4],
+  image: fallbackImage,
+  synopsis: "Sugestão leve para date, escolhida para manter o clima fácil e sem repetir sempre os mesmos títulos.",
+  why: "combina com um date leve, divertido e confortável.",
+}));
+
+movieCatalog.push(...dateMovieFallback);
 
 const state = {
   step: 0,
@@ -1281,15 +1599,7 @@ function resetRouletteState() {
 }
 
 function getRouletteSequence() {
-  if (!state.answers.place) {
-    return ["place"];
-  }
-
-  if (state.answers.place === "outside") {
-    return ["place", "outsideActivity", "time", "money", "foods", "outsideFinish"];
-  }
-
-  return ["place", "money", "foods", "providers", "screen", "genres"];
+  return ["gameTime", "gameStarter", "gameMain", "gameDessert", "gameFinalActivity"];
 }
 
 function getCurrentRouletteQuestionId() {
@@ -1297,17 +1607,22 @@ function getCurrentRouletteQuestionId() {
 }
 
 function getRouletteOptions(questionId) {
-  const options = questionBank[questionId].options;
-
-  if (questionId === "place") {
-    return options.filter((option) => option.value !== "flex");
+  if (questionId === "gameTime" || questionId === "gameDessert") {
+    return gameOptions[questionId];
   }
 
-  return options;
+  const time = state.answers.gameTime || "night";
+  const options = gameOptions[questionId];
+
+  if (options && !Array.isArray(options)) {
+    return options[time] || options.night || [];
+  }
+
+  return questionBank[questionId]?.options || [];
 }
 
 function getRouletteTotalRounds() {
-  return 6;
+  return getRouletteSequence().length;
 }
 
 function buildRouletteBackground(optionCount) {
@@ -1368,7 +1683,7 @@ function renderRouletteRound() {
   const options = getRouletteOptions(questionId);
   const total = getRouletteTotalRounds();
 
-  if (!question || !options.length) {
+  if (!options.length) {
     renderResult();
     return;
   }
@@ -1376,7 +1691,7 @@ function renderRouletteRound() {
   stepLabel.textContent = `Roleta ${rouletteState.round + 1} de ${total}`;
   progressBar.style.width = `${((rouletteState.round + 1) / total) * 100}%`;
   rouletteRoundLabel.textContent = `Rodada ${rouletteState.round + 1} de ${total}`;
-  rouletteQuestionTitle.textContent = question.title;
+  rouletteQuestionTitle.textContent = gamePhaseTitles[questionId] || question?.title || "O que vai cair?";
   rouletteResultText.textContent = "Gire a roleta para revelar essa escolha.";
   rouletteButton.disabled = false;
   rouletteButton.textContent = "Girar rodada";
@@ -1385,7 +1700,9 @@ function renderRouletteRound() {
 }
 
 function applyRouletteChoice(questionId, option) {
-  if (questionBank[questionId].type === "multi") {
+  if (questionId.startsWith("game")) {
+    state.answers[questionId] = option.value;
+  } else if (questionBank[questionId].type === "multi") {
     state.answers[questionId] = [option.value];
     state.answers[`${questionId}Extra`] = "";
   } else {
@@ -1393,7 +1710,7 @@ function applyRouletteChoice(questionId, option) {
   }
 
   rouletteState.history.push({
-    label: questionBank[questionId].kicker || "Escolha",
+    label: gamePhaseLabels[questionId] || questionBank[questionId]?.kicker || "Escolha",
     value: option.title,
   });
 }
@@ -1416,6 +1733,7 @@ async function startRouletteExperience() {
   rouletteStartButton.textContent = "Preparando...";
   resetDecisionState();
   resetRouletteState();
+  state.answers.gameMode = true;
   state.answers.location = city;
 
   try {
@@ -1424,7 +1742,7 @@ async function startRouletteExperience() {
     state.weather = null;
   } finally {
     rouletteStartButton.disabled = false;
-    rouletteStartButton.textContent = "Começar roleta";
+    rouletteStartButton.textContent = "Não quero decidir nada";
   }
 
   rouletteSetup.classList.add("hidden");
@@ -1794,6 +2112,99 @@ function getOptionTitle(questionId, value) {
   return option?.title || value;
 }
 
+function getGameOption(phaseId, value) {
+  const options = phaseId === "gameTime" || phaseId === "gameDessert"
+    ? gameOptions[phaseId]
+    : Object.values(gameOptions[phaseId] || {}).flat();
+
+  return options.find((option) => option.value === value) || {
+    value,
+    title: value || "Escolha surpresa",
+    detail: "O app escolheu essa parte do plano.",
+    image: fallbackImage,
+  };
+}
+
+function chooseGameRecommendation() {
+  const dateGenres = ["romance", "comedia", "feel_good", "light_drama"];
+  const matches = uniqueRecommendations(
+    movieCatalog.filter((item) => dateGenres.includes(item.genre)),
+  );
+  let available = matches.filter(
+    (item) => !state.seenRecommendationKeys.includes(getRecommendationKey(item)),
+  );
+
+  if (available.length === 0) {
+    state.seenRecommendationKeys = [];
+    available = [...matches];
+  }
+
+  const selected = randomFrom(available);
+  state.seenRecommendationKeys.push(getRecommendationKey(selected));
+  return selected;
+}
+
+function buildGameResult() {
+  const time = getGameOption("gameTime", state.answers.gameTime);
+  const starter = getGameOption("gameStarter", state.answers.gameStarter);
+  const main = getGameOption("gameMain", state.answers.gameMain);
+  const dessert = getGameOption("gameDessert", state.answers.gameDessert);
+  const finalActivity = getGameOption(
+    "gameFinalActivity",
+    state.answers.gameFinalActivity,
+  );
+  const shouldRecommendMovie = ["movie", "home_chill"].includes(finalActivity.value);
+  const recommendation = shouldRecommendMovie ? chooseGameRecommendation() : null;
+  const movieText = recommendation
+    ? ` Para assistir, o app escolheu ${recommendation.title}.`
+    : "";
+
+  return {
+    mode: "game",
+    title: "Seu Plano de Date",
+    description: `Date fechado em ${state.answers.location}: ${time.title.toLowerCase()}, começando com ${starter.title.toLowerCase()}, depois ${main.title.toLowerCase()}, sobremesa de ${dessert.title.toLowerCase()} e final com ${finalActivity.title.toLowerCase()}.${movieText}`,
+    hero: finalActivity.image || main.image,
+    recommendation,
+    cards: [
+      {
+        label: "Horário",
+        title: time.title,
+        detail: time.detail,
+        image: time.image,
+      },
+      {
+        label: "Entrada",
+        title: starter.title,
+        detail: starter.detail,
+        image: starter.image,
+      },
+      {
+        label: "Prato principal",
+        title: main.title,
+        detail: main.detail,
+        image: main.image,
+      },
+      {
+        label: "Sobremesa",
+        title: dessert.title,
+        detail: dessert.detail,
+        image: dessert.image,
+      },
+      {
+        label: "Atividade final",
+        title: finalActivity.title,
+        detail: finalActivity.detail,
+        image: finalActivity.image,
+      },
+    ],
+    tips: [
+      state.weather?.summary || "Confira o clima antes de sair.",
+      "A ordem do date já está fechada: entrada, principal, sobremesa e atividade final.",
+      "Se cair filme e vocês já tiverem assistido, toque em “Já assisti” para trocar sem repetir.",
+    ],
+  };
+}
+
 function pickOutsidePlace(food) {
   const activity = state.answers.outsideActivity;
   const time = state.answers.time;
@@ -1918,6 +2329,10 @@ function buildHomeResult() {
 }
 
 function buildResult() {
+  if (state.answers.gameMode) {
+    return buildGameResult();
+  }
+
   const weatherSuggestsHome = state.weather && !state.weather.isSunny;
   const shouldStayHome =
     state.answers.place === "home" ||
@@ -1948,7 +2363,7 @@ function renderResultCards(cards) {
 }
 
 function renderWatchCard(result) {
-  if (result.mode !== "home" || !result.recommendation) {
+  if (!result.recommendation) {
     return "";
   }
 
@@ -1981,7 +2396,7 @@ function renderWatchCard(result) {
 }
 
 function renderRecipeCard(result) {
-  if (result.mode !== "home" || !result.recipe) {
+  if (!result.recipe) {
     return "";
   }
 
@@ -2010,7 +2425,7 @@ function renderResult() {
   progressBar.style.width = "100%";
 
   resultPanel.innerHTML = `
-    <p class="eyebrow">Plano escolhido</p>
+    <p class="eyebrow">${result.mode === "game" ? "Recompensa desbloqueada" : "Plano escolhido"}</p>
     <div class="result-hero" style="background-image: url('${result.hero}')"></div>
     <h2 id="result-title">${escapeHtml(result.title)}</h2>
     <p id="result-description">${escapeHtml(result.description)}</p>

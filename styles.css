@@ -72,7 +72,10 @@ input {
   padding: 22px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: rgba(255, 253, 248, 0.78);
+  background:
+    radial-gradient(circle at 18% 0%, rgba(196, 147, 47, 0.18), transparent 34%),
+    radial-gradient(circle at 88% 22%, rgba(211, 79, 63, 0.16), transparent 30%),
+    rgba(255, 253, 248, 0.86);
 }
 
 .roulette-copy {
@@ -228,6 +231,32 @@ input {
 .roulette-button {
   width: fit-content;
   min-width: 170px;
+}
+
+.roulette-start-button {
+  min-width: 230px;
+  box-shadow: 0 10px 24px rgba(211, 79, 63, 0.2);
+}
+
+.roulette-start-button,
+.roulette-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.roulette-start-button::after,
+.roulette-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-120%);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.32), transparent);
+  transition: transform 450ms ease;
+}
+
+.roulette-start-button:hover::after,
+.roulette-button:hover::after {
+  transform: translateX(120%);
 }
 
 .roulette-history {
@@ -531,6 +560,19 @@ h2 {
 
 .result-panel {
   width: 100%;
+  animation: reward-pop 420ms ease both;
+}
+
+@keyframes reward-pop {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .result-hero {
@@ -720,6 +762,7 @@ h2 {
       rotate(calc(-1 * var(--angle)));
   }
 
+  .roulette-start-button,
   .roulette-button {
     width: 100%;
   }
