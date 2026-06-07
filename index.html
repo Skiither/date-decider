@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,6 +26,42 @@
       </section>
 
       <section class="quiz-panel" aria-live="polite">
+        <div class="roulette-panel" aria-label="Modo roleta">
+          <div class="roulette-copy">
+            <p class="eyebrow">Modo roleta</p>
+            <h2>Não quer decidir?</h2>
+            <p>
+              Coloque a cidade se quiser, clique em girar, e o app escolhe o
+              date completo para vocês.
+            </p>
+          </div>
+          <div class="roulette-layout">
+            <div class="roulette-wheel" id="roulette-wheel" aria-hidden="true">
+              <span>Girar</span>
+            </div>
+            <div class="roulette-controls">
+              <label class="text-field roulette-location">
+                <span>Cidade opcional</span>
+                <input
+                  id="roulette-location-input"
+                  type="text"
+                  list="roulette-location-suggestions"
+                  placeholder="Ex: São Paulo, Campinas, Recife..."
+                  autocomplete="address-level2"
+                />
+                <datalist id="roulette-location-suggestions"></datalist>
+              </label>
+              <button
+                class="primary-button roulette-button"
+                id="roulette-button"
+                type="button"
+              >
+                Girar roleta
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="manual-divider"><span>ou responda às perguntas</span></div>
         <form id="date-form">
           <div id="question-area"></div>
           <div class="actions">

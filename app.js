@@ -991,6 +991,13 @@ const resultTitle = document.querySelector("#result-title");
 const resultDescription = document.querySelector("#result-description");
 const resultTips = document.querySelector("#result-tips");
 const restartButton = document.querySelector("#restart-button");
+const rouletteButton = document.querySelector("#roulette-button");
+const rouletteWheel = document.querySelector("#roulette-wheel");
+const rouletteLocationInput = document.querySelector("#roulette-location-input");
+const rouletteLocationSuggestions = document.querySelector(
+  "#roulette-location-suggestions",
+);
+let rouletteDebounce = null;
 
 function getQuestions() {
   const place = state.answers.place;
@@ -1205,6 +1212,110 @@ function formatPlaceSuggestion(place) {
     .filter(Boolean)
     .filter((value, index, list) => list.indexOf(value) === index)
     .join(", ");
+}
+
+function setupRouletteAutocomplete() {
+  if (!rouletteLocationInput || !rouletteLocationSuggestions) {
+    return;
+  }
+
+  rouletteLocationInput.addEventListener("input", () => {
+    const query = rouletteLocationInput.value.trim();
+
+    window.clearTimeout(rouletteDebounce);
+
+    if (query.length < 3) {
+      rouletteLocationSuggestions.innerHTML = "";
+      return;
+    }
+
+    rouletteDebounce = window.setTimeout(async () => {
+      const suggestions = await fetchCitySuggestions(query);
+
+      rouletteLocationSuggestions.innerHTML = suggestions
+        .map((place) => `<option value="${escapeHtml(formatPlaceSuggestion(place))}"></option>`)
+        .join("");
+    }, 260);
+  });
+}
+
+function getQuestionValues(questionId) {
+  return questionBank[questionId].options.map((option) => option.value);
+}
+
+function randomFrom(items) {
+  return items[Math.floor(Math.random() * items.length)];
+}
+
+function randomMany(items, min = 1, max = 2) {
+  const shuffled = [...items].sort(() => Math.random() - 0.5);
+  const count = Math.min(
+    items.length,
+    Math.max(min, Math.floor(Math.random() * (max - min + 1)) + min),
+  );
+
+  return shuffled.slice(0, count);
+}
+
+function resetDecisionState() {
+  state.step = 0;
+  state.answers = {};
+  state.weather = null;
+  state.isLoadingWeather = false;
+  state.recommendationIndex = 0;
+  state.seenRecommendationKeys = [];
+  state.recipeIndex = Date.now();
+  state.currentResult = null;
+}
+
+async function spinRoulette() {
+  if (!rouletteButton) {
+    return;
+  }
+
+  const city = rouletteLocationInput?.value.trim() || "sua cidade";
+
+  rouletteButton.disabled = true;
+  rouletteButton.textContent = "Girando...";
+  rouletteWheel?.classList.add("spinning");
+  resetDecisionState();
+  state.answers.location = city;
+
+  if (city !== "sua cidade") {
+    try {
+      state.weather = await fetchWeather(city);
+    } catch {
+      state.weather = null;
+    }
+  }
+
+  const weatherSuggestsHome = state.weather && !state.weather.isSunny;
+  const place = weatherSuggestsHome
+    ? randomFrom(["home", "home", "outside"])
+    : randomFrom(["home", "outside"]);
+
+  state.answers.place = place;
+  state.answers.money = randomFrom(getQuestionValues("money"));
+  state.answers.foods = [randomFrom(getQuestionValues("foods"))];
+  state.answers.foodsExtra = "";
+
+  if (place === "outside") {
+    state.answers.outsideActivity = randomFrom(getQuestionValues("outsideActivity"));
+    state.answers.time = randomFrom(getQuestionValues("time"));
+    state.answers.outsideFinish = randomFrom(getQuestionValues("outsideFinish"));
+  } else {
+    state.answers.providers = randomMany(getQuestionValues("providers"), 1, 2);
+    state.answers.screen = randomFrom(getQuestionValues("screen"));
+    state.answers.genres = [randomFrom(getQuestionValues("genres"))];
+    state.answers.genresExtra = "";
+  }
+
+  window.setTimeout(() => {
+    rouletteWheel?.classList.remove("spinning");
+    rouletteButton.disabled = false;
+    rouletteButton.textContent = "Girar roleta";
+    renderResult();
+  }, 900);
 }
 
 async function fetchWeather(city) {
@@ -1818,6 +1929,7 @@ function restartQuiz() {
 }
 
 form.addEventListener("submit", handleSubmit);
+rouletteButton?.addEventListener("click", spinRoulette);
 
 backButton.addEventListener("click", () => {
   if (state.step > 0) {
@@ -1828,4 +1940,5 @@ backButton.addEventListener("click", () => {
 
 restartButton.addEventListener("click", restartQuiz);
 
+setupRouletteAutocomplete();
 renderQuestion();
